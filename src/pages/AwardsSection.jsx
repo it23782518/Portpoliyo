@@ -6,6 +6,15 @@ import { Award, Trophy, Star, X, Eye } from 'lucide-react'
 
 const awards = [
   {
+    title: "CodeRally 6.0 – Final 24 Hour Hackathon (Intermediate Tier – 4th Place)",
+    organization: "IEEE Computer Society Student Branch Chapter of IIT",
+    year: "Sep 2025",
+    description: "Team Enigma, consisting of Hesara Perera, Sandil Helitha Perera, Senal Galagedara and Hasith Kaushal, participated in the Final 24 Hour Hackathon of CodeRally 6.0 organized by the IEEE Computer Society Student Branch Chapter of IIT. After an intense 24 hours of coding, problem solving and teamwork, we proudly secured fourth place in the Intermediate Tier. It was a memorable experience that enhanced our creativity, collaboration and technical problem-solving skills.",
+    icon: Trophy,
+    color: "text-yellow-500",
+    images: ["https://res.cloudinary.com/dgthdmczs/image/upload/v1767949140/CodeRally_image_1.jpg", "https://res.cloudinary.com/dgthdmczs/image/upload/v1767949183/CodeRally_image_2.jpg", "https://res.cloudinary.com/dgthdmczs/image/upload/v1767949196/CodeRally_image_3.jpg"]
+  },
+  {
     title: "Merit Award – Algothon Contest (Tertiary Category)",
     organization: "SLIIT CODEFEST 2025 – Faculty of Computing, Sri Lanka Institute of Information Technology",
     year: "Sep 2025",
@@ -48,6 +57,7 @@ const AwardsSection = ({ theme, roboticMode, openImageModal }) => {
   const [currentAwardIndex, setCurrentAwardIndex] = useState(awards.length * 2); // Start in the middle for infinite scroll
   const movingRef = useRef(null)
   const [stepWidth, setStepWidth] = useState(320 + 24) // fallback: card width (320) + gap (24)
+  const scrollIntervalRef = useRef(null) // Track scroll interval for resetting
   
   // Animation variants
   const stagger = {
@@ -99,19 +109,45 @@ const AwardsSection = ({ theme, roboticMode, openImageModal }) => {
 
   // Auto-scroll awards in infinite circular motion (forward only) - slowed down
   useEffect(() => {
-    const scrollInterval = setInterval(() => {
+    const startAutoScroll = () => {
+      if (scrollIntervalRef.current) {
+        clearInterval(scrollIntervalRef.current)
+      }
+      scrollIntervalRef.current = setInterval(() => {
+        setCurrentAwardIndex(prevIndex => {
+          const nextIndex = prevIndex + 1
+          // When reaching near the end of the duplicated array, reset to the middle for seamless infinite loop
+          if (nextIndex >= awards.length * 4) {
+            return awards.length * 2
+          }
+          return nextIndex
+        })
+      }, 7000) // Change awards every 7 seconds (slower)
+    }
+
+    startAutoScroll()
+    return () => {
+      if (scrollIntervalRef.current) {
+        clearInterval(scrollIntervalRef.current)
+      }
+    }
+  }, [])
+
+  // Function to reset auto-scroll timer
+  const resetAutoScroll = () => {
+    if (scrollIntervalRef.current) {
+      clearInterval(scrollIntervalRef.current)
+    }
+    scrollIntervalRef.current = setInterval(() => {
       setCurrentAwardIndex(prevIndex => {
         const nextIndex = prevIndex + 1
-        // When reaching near the end of the duplicated array, reset to the middle for seamless infinite loop
         if (nextIndex >= awards.length * 4) {
           return awards.length * 2
         }
         return nextIndex
       })
-    }, 7000) // Change awards every 7 seconds (slower)
-
-    return () => clearInterval(scrollInterval)
-  }, [])
+    }, 7000)
+  }
 
   // Compute step width (card width + gap) so translations align perfectly
   useEffect(() => {
@@ -153,6 +189,7 @@ const AwardsSection = ({ theme, roboticMode, openImageModal }) => {
           <button
             className="absolute left-0 top-1/2 transform -translate-y-1/2 z-20 bg-gray-800/50 hover:bg-gray-800/70 text-white p-3 rounded-full shadow-lg backdrop-blur-sm transition-all duration-300"
             onClick={() => {
+              resetAutoScroll()
               setCurrentAwardIndex(prev => {
                 const newIndex = prev - 1
                 if (newIndex < awards.length) {
@@ -170,6 +207,7 @@ const AwardsSection = ({ theme, roboticMode, openImageModal }) => {
           <button
             className="absolute right-0 top-1/2 transform -translate-y-1/2 z-20 bg-gray-800/50 hover:bg-gray-800/70 text-white p-3 rounded-full shadow-lg backdrop-blur-sm transition-all duration-300"
             onClick={() => {
+              resetAutoScroll()
               setCurrentAwardIndex(prev => {
                 const newIndex = prev + 1
                 if (newIndex >= awards.length * 4) {
