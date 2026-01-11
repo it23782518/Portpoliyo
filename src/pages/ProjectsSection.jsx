@@ -292,15 +292,17 @@ const ProjectsSection = ({ theme }) => {
                 <span className="text-sm text-gray-400">Nov 2023 - Mar 2024</span>
               </div>
               <p className={`${theme === 'dark' ? 'text-gray-300' : 'text-gray-600'} mb-4`}>
-                A foundational landmine detection system utilizing magnetic field sensing technology and a 4WD Arduino-based robot.
+                A foundational landmine detection system developed during Year 1, Semester 1, leveraging magnetic field sensing technology to identify metallic landmines. The system utilized a 4WD Arduino-based robot equipped with a rotating sensor arm to optimize coverage and detection accuracy. This hands-on project bridged theoretical knowledge with practical application, demonstrating how technology can address critical safety challenges.
               </p>
               <div className="mb-4">
                 <h4 className="font-semibold mb-2 text-sm uppercase tracking-wider text-cyan-400">Key Features</h4>
                 <ul className="list-disc pl-5 space-y-1 text-sm mb-4">
                   <li>Magnetic sensor integration for metallic landmine detection</li>
-                  <li>4WD Arduino-based robot with rotating sensor arm</li>
-                  <li>Real-time data visualization and alerts</li>
-                  <li>Presented at Idea Spark 2 competition (SLIIT)</li>
+                  <li>4WD Arduino-based robot with rotating sensor arm for optimized coverage</li>
+                  <li>Robot navigation algorithms and pathfinding implementation</li>
+                  <li>Real-time data visualization and alert system</li>
+                  <li>Web-based monitoring dashboard for visual feedback</li>
+                  <li>Presented at Idea Spark 2 competition organized by SLIIT</li>
                 </ul>
               </div>
               <div className="flex flex-wrap gap-2 mb-4">
@@ -308,6 +310,7 @@ const ProjectsSection = ({ theme }) => {
                 <span className={`px-3 py-1 rounded-full text-xs ${theme === 'dark' ? 'bg-slate-700' : 'bg-slate-100'}`}>Robotics</span>
                 <span className={`px-3 py-1 rounded-full text-xs ${theme === 'dark' ? 'bg-slate-700' : 'bg-slate-100'}`}>IoT</span>
                 <span className={`px-3 py-1 rounded-full text-xs ${theme === 'dark' ? 'bg-slate-700' : 'bg-slate-100'}`}>Sensors</span>
+                <span className={`px-3 py-1 rounded-full text-xs ${theme === 'dark' ? 'bg-slate-700' : 'bg-slate-100'}`}>Web Development</span>
               </div>
               <div className="flex gap-4">
                 <motion.button
@@ -389,22 +392,27 @@ const ProjectsSection = ({ theme }) => {
                 <span className="text-sm text-gray-400">Feb - May 2025</span>
               </div>
               <p className={`${theme === 'dark' ? 'text-gray-300' : 'text-gray-600'} mb-4`}>
-                Advanced Gym Management System developed for SLIIT&apos;s Object-Oriented Analysis & Design module.
+                GymSync is an advanced Gym Management System developed as part of the SE2012 Object-Oriented Analysis & Design module at SLIIT (Y2S1 – 2025). The system empowers gyms to streamline operations through real-time tracking, booking systems, and smart equipment management. Built with a full-stack responsive architecture using React.js, Spring Boot, and MySQL with JPA/Hibernate.
               </p>
               <div className="mb-4">
-                <h4 className="font-semibold mb-2 text-sm uppercase tracking-wider text-cyan-400">Key Features</h4>
+                <h4 className="font-semibold mb-2 text-sm uppercase tracking-wider text-cyan-400">Key Features Built</h4>
                 <ul className="list-disc pl-5 space-y-1 text-sm mb-4">
                   <li>Real-time equipment tracking & status management</li>
                   <li>Staff management with role-based access control</li>
                   <li>Appointment booking system for trainers & members</li>
+                  <li>Exercise library with tutorial videos</li>
+                  <li>Maintenance scheduling & ticket management</li>
+                  <li>Session logging for workout tracking</li>
                   <li>QR code integration for quick access</li>
                 </ul>
               </div>
               <div className="flex flex-wrap gap-2 mb-4">
                 <span className={`px-3 py-1 rounded-full text-xs ${theme === 'dark' ? 'bg-slate-700' : 'bg-slate-100'}`}>React.js</span>
+                <span className={`px-3 py-1 rounded-full text-xs ${theme === 'dark' ? 'bg-slate-700' : 'bg-slate-100'}`}>Vite</span>
                 <span className={`px-3 py-1 rounded-full text-xs ${theme === 'dark' ? 'bg-slate-700' : 'bg-slate-100'}`}>Spring Boot</span>
                 <span className={`px-3 py-1 rounded-full text-xs ${theme === 'dark' ? 'bg-slate-700' : 'bg-slate-100'}`}>Tailwind CSS</span>
                 <span className={`px-3 py-1 rounded-full text-xs ${theme === 'dark' ? 'bg-slate-700' : 'bg-slate-100'}`}>MySQL</span>
+                <span className={`px-3 py-1 rounded-full text-xs ${theme === 'dark' ? 'bg-slate-700' : 'bg-slate-100'}`}>JPA/Hibernate</span>
                 <span className={`px-3 py-1 rounded-full text-xs ${theme === 'dark' ? 'bg-slate-700' : 'bg-slate-100'}`}>RESTful APIs</span>
               </div>
               <div className="flex gap-4">
@@ -484,15 +492,19 @@ const ProjectsSection = ({ theme }) => {
                 <span className="text-sm text-gray-400">Jun 2025</span>
               </div>
               <p className={`${theme === 'dark' ? 'text-gray-300' : 'text-gray-600'} mb-4`}>
-                AI-powered animal image classification web application that identifies 64 different animal species using a custom CNN model.
+                Animal Recognizer is a full-stack AI web application that allows users to upload images and instantly identify animals from 64 different animal species using a custom-trained Convolutional Neural Network (CNN) model. This project combines deep learning, TensorFlow deployment, and modern web technologies to deliver fast and accurate real-time predictions in the browser.
               </p>
               <div className="mb-4">
-                <h4 className="font-semibold mb-2 text-sm uppercase tracking-wider text-cyan-400">Key Features</h4>
+                <h4 className="font-semibold mb-2 text-sm uppercase tracking-wider text-cyan-400">Key Features Built</h4>
                 <ul className="list-disc pl-5 space-y-1 text-sm mb-4">
-                  <li>Real-time animal recognition with TensorFlow</li>
-                  <li>Next.js (TypeScript) frontend with Tailwind CSS</li>
-                  <li>Python backend for ML model inference</li>
-                  <li>Custom CNN model trained with Keras</li>
+                  <li>Real-time animal recognition for 64 animal species</li>
+                  <li>Image upload with instant classification</li>
+                  <li>Fast TensorFlow-based model inference with Python backend</li>
+                  <li>Next.js (TypeScript) frontend with Tailwind CSS for responsive UI</li>
+                  <li>Next.js API routes forwarding image data to Python inference server</li>
+                  <li>Custom CNN model trained with Keras on curated animal image dataset</li>
+                  <li>Seamless frontend-backend integration with reliable predictions</li>
+                  <li>Google Colab-based model training and TensorFlow deployment</li>
                 </ul>
               </div>
               <div className="flex flex-wrap gap-2 mb-4">
@@ -580,15 +592,19 @@ const ProjectsSection = ({ theme }) => {
                 <span className="text-sm text-gray-400">Aug - Oct 2025</span>
               </div>
               <p className={`${theme === 'dark' ? 'text-gray-300' : 'text-gray-600'} mb-4`}>
-                Simulation-based evaluation of adaptive modulation techniques under wireless channel conditions to improve data reliability and spectral efficiency.
+                This project focuses on designing and evaluating an adaptive modulation system for wireless communication, aiming to improve data reliability and spectral efficiency under varying channel conditions. Using MATLAB simulations, we analyzed the performance of BPSK, QPSK, and 16QAM across AWGN, Rayleigh, and Rician fading environments. Adaptive modulation successfully switched between schemes based on SNR, maintaining target BER ≤ 10⁻³ while maximizing throughput.
               </p>
               <div className="mb-4">
-                <h4 className="font-semibold mb-2 text-sm uppercase tracking-wider text-cyan-400">Key Features</h4>
+                <h4 className="font-semibold mb-2 text-sm uppercase tracking-wider text-cyan-400">Key Objectives & Achievements</h4>
                 <ul className="list-disc pl-5 space-y-1 text-sm mb-4">
-                  <li>BPSK, QPSK, and 16QAM modulation schemes</li>
-                  <li>AWGN, Rayleigh, and Rician fading models</li>
-                  <li>BER analysis and spectral efficiency performance</li>
-                  <li>Interactive web-based visualization of results</li>
+                  <li>Model realistic wireless transmission scenarios</li>
+                  <li>Compare fixed vs. adaptive modulation performance</li>
+                  <li>Maintain target BER ≤ 10⁻³ while maximizing throughput</li>
+                  <li>Evaluate spectral efficiency and constellation behavior</li>
+                  <li>Successfully switched between BPSK → QPSK → 16QAM based on SNR</li>
+                  <li>Achieved optimal trade-off between error rate and bandwidth usage</li>
+                  <li>Demonstrated robustness under fading channel conditions</li>
+                  <li>Interactive web-based visualization of simulation results</li>
                 </ul>
               </div>
               <div className="flex flex-wrap gap-2 mb-4">
@@ -669,15 +685,18 @@ const ProjectsSection = ({ theme }) => {
                 <span className="text-sm text-gray-400">Sep - Oct 2025</span>
               </div>
               <p className={`${theme === 'dark' ? 'text-gray-300' : 'text-gray-600'} mb-4`}>
-                Multi-stage analog circuit to recover and amplify audio signals from AM detector output, achieving ~21× amplification.
+                Designed and implemented a multi-stage analog circuit to recover and amplify the audio signal from an AM detector output. The system includes a band-pass filter, a buffer stage, and a common-emitter BJT amplifier, achieving an amplification of around 21× within the 1 kHz – 20 kHz audio range. Successfully demonstrated clean amplification of audio signals while avoiding distortion and preserving bandwidth. Completed as part of the Analog Electronics (IE2034) module at SLIIT.
               </p>
               <div className="mb-4">
-                <h4 className="font-semibold mb-2 text-sm uppercase tracking-wider text-cyan-400">Key Features</h4>
+                <h4 className="font-semibold mb-2 text-sm uppercase tracking-wider text-cyan-400">Project Highlights</h4>
                 <ul className="list-disc pl-5 space-y-1 text-sm mb-4">
-                  <li>Band-pass filter, buffer stage, and BJT amplifier design</li>
                   <li>RC filter design and cutoff frequency calculations</li>
+                  <li>Transistor biasing and Q-point stabilization</li>
                   <li>LTSpice simulation for frequency response analysis</li>
-                  <li>Practical hardware implementation and oscilloscope testing</li>
+                  <li>Practical hardware implementation on a dot-board</li>
+                  <li>Oscilloscope testing to validate amplification performance</li>
+                  <li>Achieved ~21× voltage gain within audio frequency range</li>
+                  <li>Clean amplification without distortion or bandwidth loss</li>
                 </ul>
               </div>
               <div className="flex flex-wrap gap-2 mb-4">
@@ -747,15 +766,18 @@ const ProjectsSection = ({ theme }) => {
                 <span className="text-sm text-gray-400">Mar 2025</span>
               </div>
               <p className={`${theme === 'dark' ? 'text-gray-300' : 'text-gray-600'} mb-4`}>
-                UI design for a gamified financial literacy app tailored for GenZ users, built for InterfaceX design competition.
+                Designed the UI for Zave, a gamified financial literacy app tailored for GenZ users. Built as a submission for the InterfaceX design competition, the app empowers young users to take control of their personal finances while engaging in fun, competitive learning. Features a youthful, vibrant interface with gamified UI elements designed for scalability and real-world deployment. Currently a semi-finalist in progress at InterfaceX 2025.
               </p>
               <div className="mb-4">
-                <h4 className="font-semibold mb-2 text-sm uppercase tracking-wider text-cyan-400">Key Features</h4>
+                <h4 className="font-semibold mb-2 text-sm uppercase tracking-wider text-cyan-400">Key Features & Design Highlights</h4>
                 <ul className="list-disc pl-5 space-y-1 text-sm mb-4">
-                  <li>Budget & Expense Manager with analytics</li>
-                  <li>Financial Quizzes with interactive modules</li>
-                  <li>Leaderboards for competitive learning</li>
-                  <li>Goal Tracker with progress visualization</li>
+                  <li>Budget & Expense Manager – Categorized spending, savings goals, and analytics</li>
+                  <li>Financial Quizzes – Interactive quiz modules to test financial knowledge</li>
+                  <li>Leaderboards – Compete with friends and users globally in financial literacy</li>
+                  <li>Goal Tracker – Visualize short- and long-term financial goals with progress tracking</li>
+                  <li>Secure Onboarding – GenZ-friendly yet professional UI with clear UX flows</li>
+                  <li>Youthful, vibrant interface appealing to GenZ aesthetic</li>
+                  <li>Gamified UI elements to increase user engagement</li>
                 </ul>
               </div>
               <div className="flex flex-wrap gap-2 mb-4">
