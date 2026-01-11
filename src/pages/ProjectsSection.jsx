@@ -352,6 +352,17 @@ const ProjectsSection = ({ theme }) => {
               <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent opacity-0 hover:opacity-100 transition-opacity duration-300 flex items-end">
                 <div className="p-4 w-full">
                   <div className="flex gap-2 justify-end">
+                    <motion.button
+                      onClick={() => setVideoModal({ 
+                        isOpen: true, 
+                        url: 'https://res.cloudinary.com/dgthdmczs/video/upload/v1768116156/GymSync_video.mp4',
+                        title: 'GymSync - Demo Video'
+                      })}
+                      className="bg-white/20 backdrop-blur-md p-2 rounded-full hover:bg-white/30"
+                      whileHover={{ scale: 1.2, rotate: 5 }}
+                    >
+                      <Play size={16} className="text-white" />
+                    </motion.button>
                     <motion.a
                       href="https://mansa-brown.vercel.app/"
                       target="_blank"
@@ -397,6 +408,17 @@ const ProjectsSection = ({ theme }) => {
                 <span className={`px-3 py-1 rounded-full text-xs ${theme === 'dark' ? 'bg-slate-700' : 'bg-slate-100'}`}>RESTful APIs</span>
               </div>
               <div className="flex gap-4">
+                <motion.button
+                  onClick={() => setVideoModal({ 
+                    isOpen: true, 
+                    url: 'https://res.cloudinary.com/dgthdmczs/video/upload/v1768116156/GymSync_video.mp4',
+                    title: 'GymSync - Demo Video'
+                  })}
+                  className={`text-sm ${theme === 'dark' ? 'text-cyan-400 hover:text-cyan-300' : 'text-blue-500 hover:text-blue-700'} flex items-center gap-1`}
+                  whileHover={{ x: 5 }}
+                >
+                  Watch Demo <Play size={14} />
+                </motion.button>
                 <motion.a
                   href="https://mansa-brown.vercel.app/"
                   target="_blank"
