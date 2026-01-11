@@ -27,21 +27,27 @@ const ProjectsSection = ({ theme }) => {
       'netsentryx-demo-video': {
         url: 'https://res.cloudinary.com/dgthdmczs/video/upload/v1767948418/NetSentryX_video.mp4',
         title: 'NetSentryX - Demo Video',
-        projectName: 'NetSentryX'
+        projectName: 'NetSentryX',
+        thumbnail: netSentryXImg,
+        description: 'Real-time Network Intrusion Detection System with ML-powered threat detection and automated blocking'
       }
     },
     'detx': {
       'detx-autonomous-landmine-detection-system-demo': {
         url: 'https://res.cloudinary.com/dgthdmczs/video/upload/v1768115248/DetX_video.mp4',
         title: 'DetX - Autonomous Landmine Detection System Demo',
-        projectName: 'DetX'
+        projectName: 'DetX',
+        thumbnail: landmineRobotImg,
+        description: 'Autonomous robot with magnetic field sensing for detecting metallic landmines'
       }
     },
     'gymsync': {
       'gymsync-demo-video': {
         url: 'https://res.cloudinary.com/dgthdmczs/video/upload/v1768116156/GymSync_video.mp4',
         title: 'GymSync - Demo Video',
-        projectName: 'GymSync'
+        projectName: 'GymSync',
+        thumbnail: gymSyncImg,
+        description: 'Comprehensive gym management system with member tracking and workout management'
       }
     }
   }
@@ -52,6 +58,30 @@ const ProjectsSection = ({ theme }) => {
       const project = videoDatabase[params.projectName]
       if (project && project[params.videoName]) {
         const videoData = project[params.videoName]
+        
+        // Update document title and meta tags for social sharing
+        document.title = `${videoData.title} | Dilusha Chamika`
+        
+        // Update Open Graph meta tags
+        const updateMetaTag = (property, content) => {
+          let tag = document.querySelector(`meta[property="${property}"]`)
+          if (!tag) {
+            tag = document.querySelector(`meta[name="${property}"]`)
+          }
+          if (tag) {
+            tag.setAttribute('content', content)
+          }
+        }
+        
+        updateMetaTag('og:title', `${videoData.title} | Dilusha Chamika`)
+        updateMetaTag('og:description', videoData.description)
+        updateMetaTag('og:url', window.location.href)
+        updateMetaTag('og:type', 'video.other')
+        updateMetaTag('og:image', videoData.thumbnail)
+        updateMetaTag('twitter:title', `${videoData.title} | Dilusha Chamika`)
+        updateMetaTag('twitter:description', videoData.description)
+        updateMetaTag('twitter:image', videoData.thumbnail)
+        updateMetaTag('description', videoData.description)
         
         // Scroll to projects section
         setTimeout(() => {
@@ -70,9 +100,16 @@ const ProjectsSection = ({ theme }) => {
             projectName: videoData.projectName
           })
         }, 1000)
+      } else {
+        // Invalid video URL - redirect to home
+        document.title = 'Dilusha Chamika | Portfolio'
+        navigate('/', { replace: true })
       }
+    } else {
+      // Reset to default title when not on a video page
+      document.title = 'Dilusha Chamika | Portfolio'
     }
-  }, [params.projectName, params.videoName])
+  }, [params.projectName, params.videoName, navigate])
 
   // Close modal and clean URL
   const handleCloseVideoModal = () => {
