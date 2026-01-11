@@ -11,8 +11,8 @@ export default defineConfig({
       registerType: 'autoUpdate',
       includeAssets: ['favicon.ico', 'logo.png', 'images/logo-112.png'],
       workbox: {
-        // Disable default SPA navigation fallback so real 404 responses render the custom page
-        navigateFallback: null
+        // Enable SPA navigation fallback for client-side routing
+        navigateFallback: '/index.html'
       },
       manifest: {
         name: 'Dilusha Chamika Portfolio',
