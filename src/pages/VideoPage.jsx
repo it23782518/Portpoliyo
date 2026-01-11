@@ -12,7 +12,6 @@ const VideoPage = () => {
   const navigate = useNavigate()
   const videoRef = useRef(null)
   
-  const [loading, setLoading] = useState(true)
   const [copied, setCopied] = useState(false)
   const [isPlaying, setIsPlaying] = useState(true)
   const [currentTime, setCurrentTime] = useState(0)
@@ -92,21 +91,10 @@ const VideoPage = () => {
     }
   }
 
-  const project = videoDatabase[params.projectName]
-  const videoData = project?.[params.videoName]
-
-  // Redirect if invalid URL - but wait a moment to let the component mount
-  useEffect(() => {
-    const timer = setTimeout(() => {
-      if (!videoData) {
-        navigate('/', { replace: true })
-      } else {
-        setLoading(false)
-      }
-    }, 100)
-    
-    return () => clearTimeout(timer)
-  }, [videoData, navigate])
+  const projectSlug = (params.projectName || '').toLowerCase()
+  const videoSlug = (params.videoName || '').toLowerCase()
+  const project = videoDatabase[projectSlug]
+  const videoData = project?.[videoSlug]
 
   // Update meta tags
   useEffect(() => {
@@ -260,12 +248,21 @@ const VideoPage = () => {
     return `${mins}:${secs.toString().padStart(2, '0')}`
   }
 
-  if (loading || !videoData) {
+  if (!videoData) {
     return (
-      <div className="min-h-screen bg-slate-900 flex items-center justify-center">
-        <div className="text-center">
-          <div className="inline-block h-12 w-12 animate-spin rounded-full border-4 border-solid border-cyan-400 border-r-transparent"></div>
-          <p className="mt-4 text-gray-400">Loading video...</p>
+      <div className="min-h-screen bg-slate-900 flex items-center justify-center px-4">
+        <div className="max-w-lg text-center">
+          <h1 className="text-3xl font-bold text-white mb-4">Video Not Found</h1>
+          <p className="text-gray-400 mb-6">
+            The video link you tried to open does not match any published project. Please verify the URL or return to the main portfolio to browse available projects.
+          </p>
+          <button
+            onClick={() => navigate('/')}
+            className="inline-flex items-center gap-2 px-6 py-3 bg-cyan-500 hover:bg-cyan-600 text-white rounded-lg transition-colors"
+          >
+            <ArrowLeft size={18} />
+            <span>Back to Portfolio</span>
+          </button>
         </div>
       </div>
     )
