@@ -12,6 +12,7 @@ const VideoPage = () => {
   const navigate = useNavigate()
   const videoRef = useRef(null)
   
+  const [loading, setLoading] = useState(true)
   const [copied, setCopied] = useState(false)
   const [isPlaying, setIsPlaying] = useState(true)
   const [currentTime, setCurrentTime] = useState(0)
@@ -94,11 +95,17 @@ const VideoPage = () => {
   const project = videoDatabase[params.projectName]
   const videoData = project?.[params.videoName]
 
-  // Redirect if invalid URL
+  // Redirect if invalid URL - but wait a moment to let the component mount
   useEffect(() => {
-    if (!videoData) {
-      navigate('/', { replace: true })
-    }
+    const timer = setTimeout(() => {
+      if (!videoData) {
+        navigate('/', { replace: true })
+      } else {
+        setLoading(false)
+      }
+    }, 100)
+    
+    return () => clearTimeout(timer)
   }, [videoData, navigate])
 
   // Update meta tags
@@ -253,7 +260,16 @@ const VideoPage = () => {
     return `${mins}:${secs.toString().padStart(2, '0')}`
   }
 
-  if (!videoData) return null
+  if (loading || !videoData) {
+    return (
+      <div className="min-h-screen bg-slate-900 flex items-center justify-center">
+        <div className="text-center">
+          <div className="inline-block h-12 w-12 animate-spin rounded-full border-4 border-solid border-cyan-400 border-r-transparent"></div>
+          <p className="mt-4 text-gray-400">Loading video...</p>
+        </div>
+      </div>
+    )
+  }
 
   return (
     <div className="min-h-screen bg-slate-900 flex flex-col">
