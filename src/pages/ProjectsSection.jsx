@@ -520,7 +520,7 @@ const ProjectsSection = ({ theme }) => {
               </div>
               <p className={`${theme === 'dark' ? 'text-gray-300' : 'text-gray-600'} mb-4`}>
                 This project focuses on designing and evaluating an adaptive modulation system for wireless communication, aiming to improve data reliability and spectral efficiency under varying channel conditions. Using MATLAB simulations, we analyzed the performance of BPSK, QPSK, and 16QAM across AWGN, Rayleigh, and Rician fading environments. Adaptive modulation successfully switched between schemes based on SNR, maintaining target BER ≤ 10⁻³ while maximizing throughput.
-              </p>
+              </p><br/>
               <div className="mb-4">
                 <h4 className="font-semibold mb-2 text-sm uppercase tracking-wider text-cyan-400">Key Objectives & Achievements</h4>
                 <ul className="list-disc pl-5 space-y-1 text-sm mb-4">
