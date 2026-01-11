@@ -43,7 +43,8 @@ const PublicationsSection = ({ theme, roboticMode }) => {
               link: "https://ieeexplore.ieee.org/document/11031065"
             },
             {
-              title: "Architecture of AI Accelerators",
+              title: "Architecture of AI Accelerators                                                        ",
+              
               desc: "This article reviews the state of the art in AI accelerator architectures, focusing on core components like TPUs, GPUs, FPGAs, and custom ASICs. It explores architectural principles, challenges, and emerging technologies like neuromorphic computing.",
               journal: "Researchgate, January 2025",
               link: "https://www.researchgate.net/publication/388498081_Architecture_of_AI_Accelerators"
