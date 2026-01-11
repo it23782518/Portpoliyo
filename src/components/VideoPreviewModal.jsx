@@ -124,6 +124,58 @@ const VideoPreviewModal = ({ isOpen, onClose, videoUrl, title, projectName }) =>
     }
   }, [isOpen])
 
+  // Try to autoplay when modal opens. If browser blocks autoplay with sound,
+  // fall back to muting the video and try again so shared links start playback.
+  useEffect(() => {
+    if (!isOpen) return
+
+    const tryAutoplay = async () => {
+      const v = videoRef.current
+      if (!v) return
+      const desiredVolume = volume || 1
+      try {
+        v.playbackRate = playbackSpeed
+        v.volume = desiredVolume
+        v.muted = false
+        await v.play()
+        setIsPlaying(true)
+        setIsMuted(false)
+      } catch (err) {
+        // Autoplay with sound blocked. Mute and try again, then attempt to unmute.
+        try {
+          v.muted = true
+          setIsMuted(true)
+          v.volume = desiredVolume
+          await v.play()
+          setIsPlaying(true)
+
+          // After playback starts muted, attempt to unmute once (may still be blocked).
+          setTimeout(async () => {
+            try {
+              v.muted = false
+              v.volume = desiredVolume
+              setIsMuted(false)
+            } catch (unmuteErr) {
+              // If unmute is blocked by browser policy, keep muted.
+              console.warn('Unmute attempt failed:', unmuteErr)
+              v.muted = true
+              setIsMuted(true)
+            }
+          }, 700)
+
+        } catch (err2) {
+          // If autoplay still fails, leave it paused and user can play manually
+          console.warn('Autoplay failed:', err2)
+          setIsPlaying(false)
+        }
+      }
+    }
+
+    // Small timeout to ensure media is loaded in some browsers
+    const t = setTimeout(() => tryAutoplay(), 200)
+    return () => clearTimeout(t)
+  }, [isOpen, playbackSpeed, volume])
+
   if (!isOpen) return null
 
   return (
