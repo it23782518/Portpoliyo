@@ -5,7 +5,6 @@ import { Sun, Moon, ArrowUp, Github, Linkedin, Mail, ExternalLink, Cpu, Youtube,
 import emailjs from '@emailjs/browser'
 import { Analytics } from '@vercel/analytics/react';
 import { SpeedInsights } from "@vercel/speed-insights/react";
-import { useParams } from 'react-router-dom'
 import RoboticSectionTitle from './components/RoboticSectionTitle'
 import BinaryMatrix from './components/BinaryMatrix'
 import useScrollLock from './hooks/useScrollLock'
@@ -62,7 +61,6 @@ function App() {
     currentIndex: 0
   })
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
-  const params = useParams()
   const isMobile = useIsMobile()
   const controls = useAnimation()
   const { scrollYProgress } = useScroll({
@@ -149,18 +147,12 @@ function App() {
     document.removeEventListener('touchstart', handleModalOutsideClick);
   }, [handleEscapeKey, handleModalOutsideClick]);
   
-  // Always show boot screen on every page refresh, except for shareable video links
+  // Always show boot screen on every page refresh
   useEffect(() => {
-    // Skip boot screen if coming from a shareable video link
-    if (params.projectName && params.videoName) {
-      setShowBootScreen(false);
-      setPortfolioVisible(true);
-    } else {
-      setShowBootScreen(true);
-      // Portfolio will be shown after boot sequence completes
-      // via the handleBootComplete callback
-    }
-  }, [params.projectName, params.videoName]);
+    setShowBootScreen(true);
+    // Portfolio will be shown after boot sequence completes
+    // via the handleBootComplete callback
+  }, []);
   
   // (Removed duplicate wheel-based close handler — scroll-based handler below already closes the skills modal)
 

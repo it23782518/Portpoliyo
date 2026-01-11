@@ -6,6 +6,7 @@ import { Analytics } from '@vercel/analytics/react';
 import './index.css'
 import './styles/roboticTheme.css'
 import App from './App.jsx'
+import VideoPage from './pages/VideoPage.jsx'
 import ThemeProvider from './components/ThemeProvider.jsx'
 
 // Quick mobile check before rendering to prevent cursor issues
@@ -35,7 +36,7 @@ createRoot(document.getElementById('root')).render(
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<App />} />
-          <Route path="/projects/:projectName/:videoName" element={<App />} />
+          <Route path="/video/:projectName/:videoName" element={<VideoPage />} />
         </Routes>
       </BrowserRouter>
       <SpeedInsights />

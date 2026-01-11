@@ -20,7 +20,7 @@ const VideoPreviewModal = ({ isOpen, onClose, videoUrl, title, projectName }) =>
     const baseUrl = window.location.origin
     const videoName = title ? title.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, '') : 'video'
     const projectSlug = projectName ? projectName.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, '') : 'project'
-    return `${baseUrl}/projects/${projectSlug}/${videoName}`
+    return `${baseUrl}/video/${projectSlug}/${videoName}`
   }
 
   const handleShare = async () => {

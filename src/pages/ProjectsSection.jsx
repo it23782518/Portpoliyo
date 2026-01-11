@@ -1,6 +1,5 @@
 import { motion } from 'framer-motion'
-import { useState, useEffect } from 'react'
-import { useParams, useNavigate } from 'react-router-dom'
+import { useState } from 'react'
 import RoboticSectionTitle from '../components/RoboticSectionTitle'
 import PDFPreviewModal from '../components/PDFPreviewModal'
 import VideoPreviewModal from '../components/VideoPreviewModal'
@@ -18,107 +17,6 @@ import PropTypes from 'prop-types'
 const ProjectsSection = ({ theme }) => {
   const [pdfModal, setPdfModal] = useState({ isOpen: false, url: '', title: '' })
   const [videoModal, setVideoModal] = useState({ isOpen: false, url: '', title: '', projectName: '' })
-  const params = useParams()
-  const navigate = useNavigate()
-
-  // Map of project slugs to video data
-  const videoDatabase = {
-    'netsentryx': {
-      'netsentryx-demo-video': {
-        url: 'https://res.cloudinary.com/dgthdmczs/video/upload/v1767948418/NetSentryX_video.mp4',
-        title: 'NetSentryX - Demo Video',
-        projectName: 'NetSentryX',
-        thumbnail: netSentryXImg,
-        description: 'Real-time Network Intrusion Detection System with ML-powered threat detection and automated blocking'
-      }
-    },
-    'detx': {
-      'detx-autonomous-landmine-detection-system-demo': {
-        url: 'https://res.cloudinary.com/dgthdmczs/video/upload/v1768115248/DetX_video.mp4',
-        title: 'DetX - Autonomous Landmine Detection System Demo',
-        projectName: 'DetX',
-        thumbnail: landmineRobotImg,
-        description: 'Autonomous robot with magnetic field sensing for detecting metallic landmines'
-      }
-    },
-    'gymsync': {
-      'gymsync-demo-video': {
-        url: 'https://res.cloudinary.com/dgthdmczs/video/upload/v1768116156/GymSync_video.mp4',
-        title: 'GymSync - Demo Video',
-        projectName: 'GymSync',
-        thumbnail: gymSyncImg,
-        description: 'Comprehensive gym management system with member tracking and workout management'
-      }
-    }
-  }
-
-  // Handle shareable video URLs
-  useEffect(() => {
-    if (params.projectName && params.videoName) {
-      const project = videoDatabase[params.projectName]
-      if (project && project[params.videoName]) {
-        const videoData = project[params.videoName]
-        
-        // Update document title and meta tags for social sharing
-        document.title = `${videoData.title} | Dilusha Chamika`
-        
-        // Update Open Graph meta tags
-        const updateMetaTag = (property, content) => {
-          let tag = document.querySelector(`meta[property="${property}"]`)
-          if (!tag) {
-            tag = document.querySelector(`meta[name="${property}"]`)
-          }
-          if (tag) {
-            tag.setAttribute('content', content)
-          }
-        }
-        
-        updateMetaTag('og:title', `${videoData.title} | Dilusha Chamika`)
-        updateMetaTag('og:description', videoData.description)
-        updateMetaTag('og:url', window.location.href)
-        updateMetaTag('og:type', 'video.other')
-        updateMetaTag('og:image', videoData.thumbnail)
-        updateMetaTag('twitter:title', `${videoData.title} | Dilusha Chamika`)
-        updateMetaTag('twitter:description', videoData.description)
-        updateMetaTag('twitter:image', videoData.thumbnail)
-        updateMetaTag('description', videoData.description)
-        
-        // Scroll to projects section
-        setTimeout(() => {
-          const projectsSection = document.getElementById('projects')
-          if (projectsSection) {
-            projectsSection.scrollIntoView({ behavior: 'smooth', block: 'start' })
-          }
-        }, 500)
-        
-        // Open video modal after scroll
-        setTimeout(() => {
-          setVideoModal({
-            isOpen: true,
-            url: videoData.url,
-            title: videoData.title,
-            projectName: videoData.projectName
-          })
-        }, 1000)
-      } else {
-        // Invalid video URL - redirect to home
-        document.title = 'Dilusha Chamika | Portfolio'
-        navigate('/', { replace: true })
-      }
-    } else {
-      // Reset to default title when not on a video page
-      document.title = 'Dilusha Chamika | Portfolio'
-    }
-  }, [params.projectName, params.videoName, navigate])
-
-  // Close modal and clean URL
-  const handleCloseVideoModal = () => {
-    setVideoModal({ isOpen: false, url: '', title: '', projectName: '' })
-    // Clean the URL if we came from a shareable link
-    if (params.projectName && params.videoName) {
-      navigate('/', { replace: true })
-    }
-  }
   
   const fadeInUp = {
     hidden: { opacity: 0, y: 20 },
@@ -148,7 +46,7 @@ const ProjectsSection = ({ theme }) => {
       {/* Video Preview Modal */}
       <VideoPreviewModal
         isOpen={videoModal.isOpen}
-        onClose={handleCloseVideoModal}
+        onClose={() => setVideoModal({ isOpen: false, url: '', title: '', projectName: '' })}
         videoUrl={videoModal.url}
         title={videoModal.title}
         projectName={videoModal.projectName}
