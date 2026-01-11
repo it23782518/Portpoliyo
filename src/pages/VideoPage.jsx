@@ -13,11 +13,11 @@ const VideoPage = () => {
   const videoRef = useRef(null)
   
   const [copied, setCopied] = useState(false)
-  const [isPlaying, setIsPlaying] = useState(true)
+  const [isPlaying, setIsPlaying] = useState(false)
   const [currentTime, setCurrentTime] = useState(0)
   const [duration, setDuration] = useState(0)
   const [volume, setVolume] = useState(1)
-  const [isMuted, setIsMuted] = useState(false)
+  const [isMuted, setIsMuted] = useState(true)
   const [playbackSpeed, setPlaybackSpeed] = useState(1)
   const [showSpeedMenu, setShowSpeedMenu] = useState(false)
 
@@ -128,7 +128,7 @@ const VideoPage = () => {
     }
   }, [videoData])
 
-  // Autoplay with fallback
+  // Autoplay with fallback; run when videoData is ready
   useEffect(() => {
     const tryAutoplay = async () => {
       const v = videoRef.current
@@ -136,25 +136,25 @@ const VideoPage = () => {
       try {
         v.playbackRate = playbackSpeed
         v.volume = volume
-        v.muted = false
+        v.muted = true
         await v.play()
         setIsPlaying(true)
-        setIsMuted(false)
+        // attempt unmute shortly after start
+        setTimeout(() => {
+          try {
+            v.muted = false
+            v.volume = volume
+            setIsMuted(false)
+          } catch (unmuteErr) {
+            console.warn('Unmute failed:', unmuteErr)
+          }
+        }, 700)
       } catch (err) {
         try {
           v.muted = true
           setIsMuted(true)
           await v.play()
           setIsPlaying(true)
-          setTimeout(() => {
-            try {
-              v.muted = false
-              v.volume = volume
-              setIsMuted(false)
-            } catch (unmuteErr) {
-              console.warn('Unmute failed:', unmuteErr)
-            }
-          }, 700)
         } catch (err2) {
           console.warn('Autoplay failed:', err2)
           setIsPlaying(false)
@@ -162,7 +162,7 @@ const VideoPage = () => {
       }
     }
     setTimeout(() => tryAutoplay(), 200)
-  }, [playbackSpeed, volume])
+  }, [videoData, playbackSpeed, volume])
 
   const handleShare = async () => {
     const shareUrl = window.location.href
@@ -313,6 +313,10 @@ const VideoPage = () => {
             <video
               ref={videoRef}
               src={videoData.url}
+              autoPlay
+              muted={isMuted}
+              playsInline
+              preload="auto"
               className="w-full h-full"
               onTimeUpdate={handleTimeUpdate}
               onLoadedMetadata={handleLoadedMetadata}
