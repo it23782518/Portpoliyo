@@ -167,84 +167,7 @@ const ProjectsSection = ({ theme }) => {
             </div>
           </motion.div>
 
-          {/* 2. Cache Memory Systems Project */}
-          <motion.div
-            variants={fadeInUp}
-            whileHover={{
-              scale: 1.02,
-              boxShadow: theme === 'dark'
-                ? '0 20px 25px -5px rgba(0, 0, 0, 0.5), 0 0 15px 0 rgba(34, 211, 238, 0.3)'
-                : '0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 0 15px 0 rgba(34, 211, 238, 0.3)'
-            }}
-            className={`rounded-lg overflow-hidden shadow-lg transition-all ${
-              theme === 'dark' ? 'bg-slate-800' : 'bg-white border border-slate-200'
-            }`}
-          >
-            <div className="relative">
-              <div className={`h-64 ${theme === 'dark' ? 'bg-slate-700' : 'bg-slate-100'} flex items-center justify-center overflow-hidden`}>
-                <motion.img
-                  src={cacheMemoryImg}
-                  alt="Cache Memory Systems Performance Analysis"
-                  className="w-full h-full object-cover"
-                  whileHover={{ scale: 1.05 }}
-                  transition={{ duration: 0.4 }}
-                  loading="lazy"
-                />
-              </div>
-              <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent opacity-0 hover:opacity-100 transition-opacity duration-300 flex items-end">
-                <div className="p-4 w-full">
-                  <div className="flex gap-2 justify-end">
-                    <motion.a
-                      href="https://www.researchgate.net/publication/396741453_Performance_Analysis_and_Design_Strategies_for_Cache_Memory_Systems"
-                      target="_blank"
-                      className="bg-white/20 backdrop-blur-md p-2 rounded-full hover:bg-white/30"
-                      whileHover={{ scale: 1.2, rotate: 5 }}
-                    >
-                      <FileText size={16} className="text-white" />
-                    </motion.a>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div className="p-6">
-              <div className="flex justify-between items-center mb-2">
-                <h3 className="text-xl font-bold">Performance Analysis and Design Strategies for Cache Memory Systems</h3>
-                <span className="text-sm text-gray-400">Aug - Oct 2025</span>
-              </div>
-              <p className={`${theme === 'dark' ? 'text-gray-300' : 'text-gray-600'} mb-4`}>
-                A collaborative research project by Dilusha Chamika, Ishan Dhanusanka, Malith Samaradiwakara, and Maneka Gunarathne focused on performance analysis and optimization of cache memory systems using simulation-based techniques. The study analyzes how cache design parameters influence system performance metrics such as hit ratio and Average Memory Access Time (AMAT). Findings highlight the effectiveness of multi-level cache architectures, moderate associativity, and LRU replacement policies.
-              </p>
-              <div className="mb-4">
-                <h4 className="font-semibold mb-2 text-sm uppercase tracking-wider text-cyan-400">Key Contributions</h4>
-                <ul className="list-disc pl-5 space-y-1 text-sm mb-4">
-                  <li>Simulated single-level and multi-level cache hierarchies</li>
-                  <li>Analyzed cache size, block size, and associativity trade-offs</li>
-                  <li>Compared replacement policies including LRU, FIFO, LFU, and Random</li>
-                  <li>Evaluated performance using hit ratio and AMAT</li>
-                  <li>Proposed design recommendations for modern processors</li>
-                </ul>
-              </div>
-              <div className="flex flex-wrap gap-2 mb-4">
-                <span className={`px-3 py-1 rounded-full text-xs ${theme === 'dark' ? 'bg-slate-700' : 'bg-slate-100'}`}>Python</span>
-                <span className={`px-3 py-1 rounded-full text-xs ${theme === 'dark' ? 'bg-slate-700' : 'bg-slate-100'}`}>MATLAB</span>
-                <span className={`px-3 py-1 rounded-full text-xs ${theme === 'dark' ? 'bg-slate-700' : 'bg-slate-100'}`}>Computer Architecture</span>
-                <span className={`px-3 py-1 rounded-full text-xs ${theme === 'dark' ? 'bg-slate-700' : 'bg-slate-100'}`}>Performance Analysis</span>
-                <span className={`px-3 py-1 rounded-full text-xs ${theme === 'dark' ? 'bg-slate-700' : 'bg-slate-100'}`}>Technical Research</span>
-              </div>
-              <div className="flex gap-4">
-                <motion.a
-                  href="https://www.researchgate.net/publication/396741453_Performance_Analysis_and_Design_Strategies_for_Cache_Memory_Systems"
-                  target="_blank"
-                  className={`text-sm ${theme === 'dark' ? 'text-cyan-400 hover:text-cyan-300' : 'text-blue-500 hover:text-blue-700'} flex items-center gap-1`}
-                  whileHover={{ x: 5 }}
-                >
-                  ResearchGate Publication <FileText size={14} />
-                </motion.a>
-              </div>
-            </div>
-          </motion.div>
-
-          {/* 3. Landmine Detection Project */}
+          {/* 2. Landmine Detection Project */}
           <motion.div
             variants={fadeInUp}
             whileHover={{
@@ -275,7 +198,7 @@ const ProjectsSection = ({ theme }) => {
                       onClick={() => setVideoModal({ 
                         isOpen: true, 
                         url: 'https://res.cloudinary.com/dgthdmczs/video/upload/v1768115248/DetX_video.mp4',
-                        title: 'Autonomous Landmine Detection System - Demo Video'
+                        title: 'DetX - Autonomous Landmine Detection System Demo'
                       })}
                       className="bg-white/20 backdrop-blur-md p-2 rounded-full hover:bg-white/30"
                       whileHover={{ scale: 1.2, rotate: 5 }}
@@ -288,28 +211,32 @@ const ProjectsSection = ({ theme }) => {
             </div>
             <div className="p-6">
               <div className="flex justify-between items-center mb-2">
-                <h3 className="text-xl font-bold">Autonomous Landmine Detection System</h3>
+                <h3 className="text-xl font-bold">DetX - Autonomous Landmine Detection System</h3>
                 <span className="text-sm text-gray-400">Nov 2023 - Mar 2024</span>
               </div>
               <p className={`${theme === 'dark' ? 'text-gray-300' : 'text-gray-600'} mb-4`}>
-                A foundational landmine detection system developed during Year 1, Semester 1, leveraging magnetic field sensing technology to identify metallic landmines. The system utilized a 4WD Arduino-based robot equipped with a rotating sensor arm to optimize coverage and detection accuracy. This hands-on project bridged theoretical knowledge with practical application, demonstrating how technology can address critical safety challenges.
+                DetX is a landmine detection system developed during Year 1, Semester 1 at SLIIT. The system leverages magnetic field sensing technology to identify metallic landmines with a 4WD Arduino-based robot equipped with a rotating sensor arm to maximize detection coverage. This hands-on project demonstrates how embedded systems, sensor integration, and web technologies can be combined to address critical humanitarian safety challenges in mine-affected regions.
               </p>
               <div className="mb-4">
-                <h4 className="font-semibold mb-2 text-sm uppercase tracking-wider text-cyan-400">Key Features</h4>
+                <h4 className="font-semibold mb-2 text-sm uppercase tracking-wider text-cyan-400">Key Capabilities</h4>
                 <ul className="list-disc pl-5 space-y-1 text-sm mb-4">
-                  <li>Magnetic sensor integration for metallic landmine detection</li>
-                  <li>4WD Arduino-based robot with rotating sensor arm for optimized coverage</li>
-                  <li>Robot navigation algorithms and pathfinding implementation</li>
-                  <li>Real-time data visualization and alert system</li>
-                  <li>Web-based monitoring dashboard for visual feedback</li>
-                  <li>Presented at Idea Spark 2 competition organized by SLIIT</li>
+                  <li>Magnetic field sensor integration for detecting metallic objects underground</li>
+                  <li>4WD Arduino-based robot with servo-controlled rotating sensor arm</li>
+                  <li>Custom navigation algorithms for systematic area coverage and pathfinding</li>
+                  <li>Real-time sensor data processing with threshold-based detection logic</li>
+                  <li>Visual and audible alert system for immediate threat indication</li>
+                  <li>Web-based monitoring dashboard for remote supervision and data visualization</li>
+                  <li>Data logging system to track detection coordinates and sensor readings</li>
+                  <li>Battery-powered autonomous operation for field deployment</li>
                 </ul>
               </div>
               <div className="flex flex-wrap gap-2 mb-4">
                 <span className={`px-3 py-1 rounded-full text-xs ${theme === 'dark' ? 'bg-slate-700' : 'bg-slate-100'}`}>Arduino</span>
+                <span className={`px-3 py-1 rounded-full text-xs ${theme === 'dark' ? 'bg-slate-700' : 'bg-slate-100'}`}>C/C++</span>
                 <span className={`px-3 py-1 rounded-full text-xs ${theme === 'dark' ? 'bg-slate-700' : 'bg-slate-100'}`}>Robotics</span>
                 <span className={`px-3 py-1 rounded-full text-xs ${theme === 'dark' ? 'bg-slate-700' : 'bg-slate-100'}`}>IoT</span>
-                <span className={`px-3 py-1 rounded-full text-xs ${theme === 'dark' ? 'bg-slate-700' : 'bg-slate-100'}`}>Sensors</span>
+                <span className={`px-3 py-1 rounded-full text-xs ${theme === 'dark' ? 'bg-slate-700' : 'bg-slate-100'}`}>Magnetic Sensors</span>
+                <span className={`px-3 py-1 rounded-full text-xs ${theme === 'dark' ? 'bg-slate-700' : 'bg-slate-100'}`}>Embedded Systems</span>
                 <span className={`px-3 py-1 rounded-full text-xs ${theme === 'dark' ? 'bg-slate-700' : 'bg-slate-100'}`}>Web Development</span>
               </div>
               <div className="flex gap-4">
@@ -317,7 +244,7 @@ const ProjectsSection = ({ theme }) => {
                   onClick={() => setVideoModal({ 
                     isOpen: true, 
                     url: 'https://res.cloudinary.com/dgthdmczs/video/upload/v1768115248/DetX_video.mp4',
-                    title: 'Autonomous Landmine Detection System - Demo Video'
+                    title: 'DetX - Autonomous Landmine Detection System Demo'
                   })}
                   className={`text-sm ${theme === 'dark' ? 'text-cyan-400 hover:text-cyan-300' : 'text-blue-500 hover:text-blue-700'} flex items-center gap-1`}
                   whileHover={{ x: 5 }}
@@ -328,7 +255,7 @@ const ProjectsSection = ({ theme }) => {
             </div>
           </motion.div>
 
-          {/* 4. GymSync Project */}
+          {/* 3. GymSync Project */}
           <motion.div
             variants={fadeInUp}
             whileHover={{
@@ -447,7 +374,7 @@ const ProjectsSection = ({ theme }) => {
             </div>
           </motion.div>
 
-          {/* 5. Animal Recognizer Project */}
+          {/* 4. Animal Recognizer Project */}
           <motion.div
             variants={fadeInUp}
             whileHover={{
@@ -493,7 +420,7 @@ const ProjectsSection = ({ theme }) => {
               </div>
               <p className={`${theme === 'dark' ? 'text-gray-300' : 'text-gray-600'} mb-4`}>
                 Animal Recognizer is a full-stack AI web application that allows users to upload images and instantly identify animals from 64 different animal species using a custom-trained Convolutional Neural Network (CNN) model. This project combines deep learning, TensorFlow deployment, and modern web technologies to deliver fast and accurate real-time predictions in the browser.
-              </p>
+              </p><br />
               <div className="mb-4">
                 <h4 className="font-semibold mb-2 text-sm uppercase tracking-wider text-cyan-400">Key Features Built</h4>
                 <ul className="list-disc pl-5 space-y-1 text-sm mb-4">
@@ -536,7 +463,7 @@ const ProjectsSection = ({ theme }) => {
             </div>
           </motion.div>
 
-          {/* 6. Adaptive Modulation Project */}
+          {/* 5. Adaptive Modulation Project */}
           <motion.div
             variants={fadeInUp}
             whileHover={{
@@ -637,6 +564,83 @@ const ProjectsSection = ({ theme }) => {
             </div>
           </motion.div>
 
+          {/* 6. Cache Memory Systems Project */}
+          <motion.div
+            variants={fadeInUp}
+            whileHover={{
+              scale: 1.02,
+              boxShadow: theme === 'dark'
+                ? '0 20px 25px -5px rgba(0, 0, 0, 0.5), 0 0 15px 0 rgba(34, 211, 238, 0.3)'
+                : '0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 0 15px 0 rgba(34, 211, 238, 0.3)'
+            }}
+            className={`rounded-lg overflow-hidden shadow-lg transition-all ${
+              theme === 'dark' ? 'bg-slate-800' : 'bg-white border border-slate-200'
+            }`}
+          >
+            <div className="relative">
+              <div className={`h-64 ${theme === 'dark' ? 'bg-slate-700' : 'bg-slate-100'} flex items-center justify-center overflow-hidden`}>
+                <motion.img
+                  src={cacheMemoryImg}
+                  alt="Cache Memory Systems Performance Analysis"
+                  className="w-full h-full object-cover"
+                  whileHover={{ scale: 1.05 }}
+                  transition={{ duration: 0.4 }}
+                  loading="lazy"
+                />
+              </div>
+              <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent opacity-0 hover:opacity-100 transition-opacity duration-300 flex items-end">
+                <div className="p-4 w-full">
+                  <div className="flex gap-2 justify-end">
+                    <motion.a
+                      href="https://www.researchgate.net/publication/396741453_Performance_Analysis_and_Design_Strategies_for_Cache_Memory_Systems"
+                      target="_blank"
+                      className="bg-white/20 backdrop-blur-md p-2 rounded-full hover:bg-white/30"
+                      whileHover={{ scale: 1.2, rotate: 5 }}
+                    >
+                      <FileText size={16} className="text-white" />
+                    </motion.a>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div className="p-6">
+              <div className="flex justify-between items-center mb-2">
+                <h3 className="text-xl font-bold">Performance Analysis and Design Strategies for Cache Memory Systems</h3>
+                <span className="text-sm text-gray-400">Aug - Oct 2025</span>
+              </div>
+              <p className={`${theme === 'dark' ? 'text-gray-300' : 'text-gray-600'} mb-4`}>
+                A collaborative research project by Dilusha Chamika, Ishan Dhanusanka, Malith Samaradiwakara, and Maneka Gunarathne focused on performance analysis and optimization of cache memory systems using simulation-based techniques. The study analyzes how cache design parameters influence system performance metrics such as hit ratio and Average Memory Access Time (AMAT). Findings highlight the effectiveness of multi-level cache architectures, moderate associativity, and LRU replacement policies.
+              </p>
+              <div className="mb-4">
+                <h4 className="font-semibold mb-2 text-sm uppercase tracking-wider text-cyan-400">Key Contributions</h4>
+                <ul className="list-disc pl-5 space-y-1 text-sm mb-4">
+                  <li>Simulated single-level and multi-level cache hierarchies</li>
+                  <li>Analyzed cache size, block size, and associativity trade-offs</li>
+                  <li>Compared replacement policies including LRU, FIFO, LFU, and Random</li>
+                  <li>Evaluated performance using hit ratio and AMAT</li>
+                  <li>Proposed design recommendations for modern processors</li>
+                </ul>
+              </div>
+              <div className="flex flex-wrap gap-2 mb-4">
+                <span className={`px-3 py-1 rounded-full text-xs ${theme === 'dark' ? 'bg-slate-700' : 'bg-slate-100'}`}>Python</span>
+                <span className={`px-3 py-1 rounded-full text-xs ${theme === 'dark' ? 'bg-slate-700' : 'bg-slate-100'}`}>MATLAB</span>
+                <span className={`px-3 py-1 rounded-full text-xs ${theme === 'dark' ? 'bg-slate-700' : 'bg-slate-100'}`}>Computer Architecture</span>
+                <span className={`px-3 py-1 rounded-full text-xs ${theme === 'dark' ? 'bg-slate-700' : 'bg-slate-100'}`}>Performance Analysis</span>
+                <span className={`px-3 py-1 rounded-full text-xs ${theme === 'dark' ? 'bg-slate-700' : 'bg-slate-100'}`}>Technical Research</span>
+              </div>
+              <div className="flex gap-4">
+                <motion.a
+                  href="https://www.researchgate.net/publication/396741453_Performance_Analysis_and_Design_Strategies_for_Cache_Memory_Systems"
+                  target="_blank"
+                  className={`text-sm ${theme === 'dark' ? 'text-cyan-400 hover:text-cyan-300' : 'text-blue-500 hover:text-blue-700'} flex items-center gap-1`}
+                  whileHover={{ x: 5 }}
+                >
+                  ResearchGate Publication <FileText size={14} />
+                </motion.a>
+              </div>
+            </div>
+          </motion.div>
+
           {/* 7. AM Receiver Audio Circuit Project */}
           <motion.div
             variants={fadeInUp}
@@ -687,6 +691,7 @@ const ProjectsSection = ({ theme }) => {
               <p className={`${theme === 'dark' ? 'text-gray-300' : 'text-gray-600'} mb-4`}>
                 Designed and implemented a multi-stage analog circuit to recover and amplify the audio signal from an AM detector output. The system includes a band-pass filter, a buffer stage, and a common-emitter BJT amplifier, achieving an amplification of around 21× within the 1 kHz – 20 kHz audio range. Successfully demonstrated clean amplification of audio signals while avoiding distortion and preserving bandwidth. Completed as part of the Analog Electronics (IE2034) module at SLIIT.
               </p>
+              <br />
               <div className="mb-4">
                 <h4 className="font-semibold mb-2 text-sm uppercase tracking-wider text-cyan-400">Project Highlights</h4>
                 <ul className="list-disc pl-5 space-y-1 text-sm mb-4">
@@ -699,6 +704,7 @@ const ProjectsSection = ({ theme }) => {
                   <li>Clean amplification without distortion or bandwidth loss</li>
                 </ul>
               </div>
+              <br />
               <div className="flex flex-wrap gap-2 mb-4">
                 <span className={`px-3 py-1 rounded-full text-xs ${theme === 'dark' ? 'bg-slate-700' : 'bg-slate-100'}`}>Circuit Design</span>
                 <span className={`px-3 py-1 rounded-full text-xs ${theme === 'dark' ? 'bg-slate-700' : 'bg-slate-100'}`}>Analog Electronics</span>
