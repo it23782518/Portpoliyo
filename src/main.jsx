@@ -35,6 +35,7 @@ createRoot(document.getElementById('root')).render(
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<App />} />
+          <Route path="/projects/:projectName/:videoName" element={<App />} />
         </Routes>
       </BrowserRouter>
       <SpeedInsights />

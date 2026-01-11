@@ -1,5 +1,6 @@
 import { motion } from 'framer-motion'
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
+import { useParams, useNavigate } from 'react-router-dom'
 import RoboticSectionTitle from '../components/RoboticSectionTitle'
 import PDFPreviewModal from '../components/PDFPreviewModal'
 import VideoPreviewModal from '../components/VideoPreviewModal'
@@ -16,7 +17,71 @@ import PropTypes from 'prop-types'
 
 const ProjectsSection = ({ theme }) => {
   const [pdfModal, setPdfModal] = useState({ isOpen: false, url: '', title: '' })
-  const [videoModal, setVideoModal] = useState({ isOpen: false, url: '', title: '' })
+  const [videoModal, setVideoModal] = useState({ isOpen: false, url: '', title: '', projectName: '' })
+  const params = useParams()
+  const navigate = useNavigate()
+
+  // Map of project slugs to video data
+  const videoDatabase = {
+    'netsentryx': {
+      'netsentryx-demo-video': {
+        url: 'https://res.cloudinary.com/dgthdmczs/video/upload/v1767948418/NetSentryX_video.mp4',
+        title: 'NetSentryX - Demo Video',
+        projectName: 'NetSentryX'
+      }
+    },
+    'detx': {
+      'detx-autonomous-landmine-detection-system-demo': {
+        url: 'https://res.cloudinary.com/dgthdmczs/video/upload/v1768115248/DetX_video.mp4',
+        title: 'DetX - Autonomous Landmine Detection System Demo',
+        projectName: 'DetX'
+      }
+    },
+    'gymsync': {
+      'gymsync-demo-video': {
+        url: 'https://res.cloudinary.com/dgthdmczs/video/upload/v1768116156/GymSync_video.mp4',
+        title: 'GymSync - Demo Video',
+        projectName: 'GymSync'
+      }
+    }
+  }
+
+  // Handle shareable video URLs
+  useEffect(() => {
+    if (params.projectName && params.videoName) {
+      const project = videoDatabase[params.projectName]
+      if (project && project[params.videoName]) {
+        const videoData = project[params.videoName]
+        
+        // Scroll to projects section
+        setTimeout(() => {
+          const projectsSection = document.getElementById('projects')
+          if (projectsSection) {
+            projectsSection.scrollIntoView({ behavior: 'smooth', block: 'start' })
+          }
+        }, 500)
+        
+        // Open video modal after scroll
+        setTimeout(() => {
+          setVideoModal({
+            isOpen: true,
+            url: videoData.url,
+            title: videoData.title,
+            projectName: videoData.projectName
+          })
+        }, 1000)
+      }
+    }
+  }, [params.projectName, params.videoName])
+
+  // Close modal and clean URL
+  const handleCloseVideoModal = () => {
+    setVideoModal({ isOpen: false, url: '', title: '', projectName: '' })
+    // Clean the URL if we came from a shareable link
+    if (params.projectName && params.videoName) {
+      navigate('/', { replace: true })
+    }
+  }
   
   const fadeInUp = {
     hidden: { opacity: 0, y: 20 },
@@ -46,9 +111,10 @@ const ProjectsSection = ({ theme }) => {
       {/* Video Preview Modal */}
       <VideoPreviewModal
         isOpen={videoModal.isOpen}
-        onClose={() => setVideoModal({ isOpen: false, url: '', title: '' })}
+        onClose={handleCloseVideoModal}
         videoUrl={videoModal.url}
         title={videoModal.title}
+        projectName={videoModal.projectName}
       />
       
       {/* No hardware decorations for projects section */}
@@ -96,7 +162,8 @@ const ProjectsSection = ({ theme }) => {
                       onClick={() => setVideoModal({ 
                         isOpen: true, 
                         url: 'https://res.cloudinary.com/dgthdmczs/video/upload/v1767948418/NetSentryX_video.mp4',
-                        title: 'NetSentryX - Demo Video'
+                        title: 'NetSentryX - Demo Video',
+                        projectName: 'NetSentryX'
                       })}
                       className="bg-white/20 backdrop-blur-md p-2 rounded-full hover:bg-white/30"
                       whileHover={{ scale: 1.2, rotate: 5 }}
@@ -148,7 +215,8 @@ const ProjectsSection = ({ theme }) => {
                   onClick={() => setVideoModal({ 
                     isOpen: true, 
                     url: 'https://res.cloudinary.com/dgthdmczs/video/upload/v1767948418/NetSentryX_video.mp4',
-                    title: 'NetSentryX - Demo Video'
+                    title: 'NetSentryX - Demo Video',
+                    projectName: 'NetSentryX'
                   })}
                   className={`text-sm ${theme === 'dark' ? 'text-cyan-400 hover:text-cyan-300' : 'text-blue-500 hover:text-blue-700'} flex items-center gap-1`}
                   whileHover={{ x: 5 }}
@@ -198,7 +266,8 @@ const ProjectsSection = ({ theme }) => {
                       onClick={() => setVideoModal({ 
                         isOpen: true, 
                         url: 'https://res.cloudinary.com/dgthdmczs/video/upload/v1768115248/DetX_video.mp4',
-                        title: 'DetX - Autonomous Landmine Detection System Demo'
+                        title: 'DetX - Autonomous Landmine Detection System Demo',
+                        projectName: 'DetX'
                       })}
                       className="bg-white/20 backdrop-blur-md p-2 rounded-full hover:bg-white/30"
                       whileHover={{ scale: 1.2, rotate: 5 }}
@@ -244,7 +313,8 @@ const ProjectsSection = ({ theme }) => {
                   onClick={() => setVideoModal({ 
                     isOpen: true, 
                     url: 'https://res.cloudinary.com/dgthdmczs/video/upload/v1768115248/DetX_video.mp4',
-                    title: 'DetX - Autonomous Landmine Detection System Demo'
+                    title: 'DetX - Autonomous Landmine Detection System Demo',
+                    projectName: 'DetX'
                   })}
                   className={`text-sm ${theme === 'dark' ? 'text-cyan-400 hover:text-cyan-300' : 'text-blue-500 hover:text-blue-700'} flex items-center gap-1`}
                   whileHover={{ x: 5 }}
@@ -286,7 +356,8 @@ const ProjectsSection = ({ theme }) => {
                       onClick={() => setVideoModal({ 
                         isOpen: true, 
                         url: 'https://res.cloudinary.com/dgthdmczs/video/upload/v1768116156/GymSync_video.mp4',
-                        title: 'GymSync - Demo Video'
+                        title: 'GymSync - Demo Video',
+                        projectName: 'GymSync'
                       })}
                       className="bg-white/20 backdrop-blur-md p-2 rounded-full hover:bg-white/30"
                       whileHover={{ scale: 1.2, rotate: 5 }}
@@ -347,7 +418,8 @@ const ProjectsSection = ({ theme }) => {
                   onClick={() => setVideoModal({ 
                     isOpen: true, 
                     url: 'https://res.cloudinary.com/dgthdmczs/video/upload/v1768116156/GymSync_video.mp4',
-                    title: 'GymSync - Demo Video'
+                    title: 'GymSync - Demo Video',
+                    projectName: 'GymSync'
                   })}
                   className={`text-sm ${theme === 'dark' ? 'text-cyan-400 hover:text-cyan-300' : 'text-blue-500 hover:text-blue-700'} flex items-center gap-1`}
                   whileHover={{ x: 5 }}
