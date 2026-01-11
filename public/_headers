@@ -1,0 +1,12 @@
+# Cache static assets
+/assets/*
+  Cache-Control: public, max-age=31536000, immutable
+
+# Don't cache HTML files to ensure dynamic routes work
+/*.html
+  Cache-Control: public, max-age=0, must-revalidate
+
+# Allow all paths for social media crawlers
+/*
+  X-Robots-Tag: all
+  Access-Control-Allow-Origin: *
