@@ -91,10 +91,11 @@ const VideoPage = () => {
     }
   }
 
-  const projectSlug = (params.projectName || '').toLowerCase()
-  const videoSlug = (params.videoName || '').toLowerCase()
-  const project = videoDatabase[projectSlug]
-  const videoData = project?.[videoSlug]
+  const hasParams = Boolean(params.projectName && params.videoName)
+  const projectSlug = hasParams ? params.projectName.toLowerCase() : null
+  const videoSlug = hasParams ? params.videoName.toLowerCase() : null
+  const project = projectSlug ? videoDatabase[projectSlug] : undefined
+  const videoData = project && videoSlug ? project[videoSlug] : undefined
 
   // Update meta tags
   useEffect(() => {
@@ -246,6 +247,17 @@ const VideoPage = () => {
     const mins = Math.floor(seconds / 60)
     const secs = Math.floor(seconds % 60)
     return `${mins}:${secs.toString().padStart(2, '0')}`
+  }
+
+  if (!hasParams) {
+    return (
+      <div className="min-h-screen bg-slate-900 flex items-center justify-center px-4">
+        <div className="max-w-lg text-center">
+          <div className="inline-block h-12 w-12 animate-spin rounded-full border-4 border-solid border-cyan-400 border-r-transparent"></div>
+          <p className="mt-4 text-gray-400">Preparing video...</p>
+        </div>
+      </div>
+    )
   }
 
   if (!videoData) {
