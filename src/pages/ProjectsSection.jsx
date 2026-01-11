@@ -64,8 +64,8 @@ const ProjectsSection = ({ theme }) => {
           whileInView="visible"
           viewport={{ once: true }}
         >
-          {/* Project Cards */}
-          {/* NetSentryX Project */}
+          {/* Project Cards - Reordered */}
+          {/* 1. NetSentryX Project */}
           <motion.div
             variants={fadeInUp}
             whileHover={{
@@ -167,7 +167,7 @@ const ProjectsSection = ({ theme }) => {
             </div>
           </motion.div>
 
-          {/* Cache Memory Systems Project */}
+          {/* 2. Cache Memory Systems Project */}
           <motion.div
             variants={fadeInUp}
             whileHover={{
@@ -244,7 +244,265 @@ const ProjectsSection = ({ theme }) => {
             </div>
           </motion.div>
 
-          {/* Adaptive Modulation Project */}
+          {/* 3. Landmine Detection Project */}
+          <motion.div
+            variants={fadeInUp}
+            whileHover={{
+              scale: 1.02,
+              boxShadow: theme === 'dark'
+                ? '0 20px 25px -5px rgba(0, 0, 0, 0.5), 0 0 15px 0 rgba(34, 211, 238, 0.3)'
+                : '0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 0 15px 0 rgba(34, 211, 238, 0.3)'
+            }}
+            className={`rounded-lg overflow-hidden shadow-lg transition-all ${
+              theme === 'dark' ? 'bg-slate-800' : 'bg-white border border-slate-200'
+            }`}
+          >
+            <div className="relative">
+              <div className={`h-64 ${theme === 'dark' ? 'bg-slate-700' : 'bg-slate-100'} flex items-center justify-center overflow-hidden`}>
+                <motion.img
+                  src={landmineRobotImg}
+                  alt="Autonomous Landmine Detection Robot"
+                  className="w-full h-full object-cover"
+                  whileHover={{ scale: 1.05 }}
+                  transition={{ duration: 0.4 }}
+                  loading="lazy"
+                />
+              </div>
+              <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent opacity-0 hover:opacity-100 transition-opacity duration-300 flex items-end">
+                <div className="p-4 w-full">
+                  <div className="flex gap-2 justify-end">
+                    <motion.button
+                      onClick={() => setVideoModal({ 
+                        isOpen: true, 
+                        url: 'https://res.cloudinary.com/dgthdmczs/video/upload/v1768115248/DetX_video.mp4',
+                        title: 'Autonomous Landmine Detection System - Demo Video'
+                      })}
+                      className="bg-white/20 backdrop-blur-md p-2 rounded-full hover:bg-white/30"
+                      whileHover={{ scale: 1.2, rotate: 5 }}
+                    >
+                      <Play size={16} className="text-white" />
+                    </motion.button>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div className="p-6">
+              <div className="flex justify-between items-center mb-2">
+                <h3 className="text-xl font-bold">Autonomous Landmine Detection System</h3>
+                <span className="text-sm text-gray-400">Nov 2023 - Mar 2024</span>
+              </div>
+              <p className={`${theme === 'dark' ? 'text-gray-300' : 'text-gray-600'} mb-4`}>
+                A foundational landmine detection system utilizing magnetic field sensing technology and a 4WD Arduino-based robot.
+              </p>
+              <div className="mb-4">
+                <h4 className="font-semibold mb-2 text-sm uppercase tracking-wider text-cyan-400">Key Features</h4>
+                <ul className="list-disc pl-5 space-y-1 text-sm mb-4">
+                  <li>Magnetic sensor integration for metallic landmine detection</li>
+                  <li>4WD Arduino-based robot with rotating sensor arm</li>
+                  <li>Real-time data visualization and alerts</li>
+                  <li>Presented at Idea Spark 2 competition (SLIIT)</li>
+                </ul>
+              </div>
+              <div className="flex flex-wrap gap-2 mb-4">
+                <span className={`px-3 py-1 rounded-full text-xs ${theme === 'dark' ? 'bg-slate-700' : 'bg-slate-100'}`}>Arduino</span>
+                <span className={`px-3 py-1 rounded-full text-xs ${theme === 'dark' ? 'bg-slate-700' : 'bg-slate-100'}`}>Robotics</span>
+                <span className={`px-3 py-1 rounded-full text-xs ${theme === 'dark' ? 'bg-slate-700' : 'bg-slate-100'}`}>IoT</span>
+                <span className={`px-3 py-1 rounded-full text-xs ${theme === 'dark' ? 'bg-slate-700' : 'bg-slate-100'}`}>Sensors</span>
+              </div>
+              <div className="flex gap-4">
+                <motion.button
+                  onClick={() => setVideoModal({ 
+                    isOpen: true, 
+                    url: 'https://res.cloudinary.com/dgthdmczs/video/upload/v1768115248/DetX_video.mp4',
+                    title: 'Autonomous Landmine Detection System - Demo Video'
+                  })}
+                  className={`text-sm ${theme === 'dark' ? 'text-cyan-400 hover:text-cyan-300' : 'text-blue-500 hover:text-blue-700'} flex items-center gap-1`}
+                  whileHover={{ x: 5 }}
+                >
+                  Watch Demo <Play size={14} />
+                </motion.button>
+              </div>
+            </div>
+          </motion.div>
+
+          {/* 4. GymSync Project */}
+          <motion.div
+            variants={fadeInUp}
+            whileHover={{
+              scale: 1.02,
+              boxShadow: theme === 'dark'
+                ? '0 20px 25px -5px rgba(0, 0, 0, 0.5), 0 0 15px 0 rgba(34, 211, 238, 0.3)'
+                : '0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 0 15px 0 rgba(34, 211, 238, 0.3)'
+            }}
+            className={`rounded-lg overflow-hidden shadow-lg transition-all ${
+              theme === 'dark' ? 'bg-slate-800' : 'bg-white border border-slate-200'
+            }`}
+          >
+            <div className="relative">
+              <div className={`h-64 ${theme === 'dark' ? 'bg-slate-700' : 'bg-slate-100'} flex items-center justify-center overflow-hidden`}>
+                <motion.img
+                  src={gymSyncImg}
+                  alt="GymSync Dashboard"
+                  className="w-full h-full object-cover"
+                  whileHover={{ scale: 1.05 }}
+                  transition={{ duration: 0.4 }}
+                  loading="lazy"
+                />
+              </div>
+              <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent opacity-0 hover:opacity-100 transition-opacity duration-300 flex items-end">
+                <div className="p-4 w-full">
+                  <div className="flex gap-2 justify-end">
+                    <motion.a
+                      href="https://mansa-brown.vercel.app/"
+                      target="_blank"
+                      className="bg-white/20 backdrop-blur-md p-2 rounded-full hover:bg-white/30"
+                      whileHover={{ scale: 1.2, rotate: 5 }}
+                    >
+                      <ExternalLink size={16} className="text-white" />
+                    </motion.a>
+                    <motion.a
+                      href="https://github.com/SLIIT-FacultyOfComputing/group-project-group-5"
+                      target="_blank"
+                      className="bg-white/20 backdrop-blur-md p-2 rounded-full hover:bg-white/30"
+                      whileHover={{ scale: 1.2, rotate: 5 }}
+                    >
+                      <Github size={16} className="text-white" />
+                    </motion.a>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div className="p-6">
+              <div className="flex justify-between items-center mb-2">
+                <h3 className="text-xl font-bold">GymSync</h3>
+                <span className="text-sm text-gray-400">Feb - May 2025</span>
+              </div>
+              <p className={`${theme === 'dark' ? 'text-gray-300' : 'text-gray-600'} mb-4`}>
+                Advanced Gym Management System developed for SLIIT&apos;s Object-Oriented Analysis & Design module.
+              </p>
+              <div className="mb-4">
+                <h4 className="font-semibold mb-2 text-sm uppercase tracking-wider text-cyan-400">Key Features</h4>
+                <ul className="list-disc pl-5 space-y-1 text-sm mb-4">
+                  <li>Real-time equipment tracking & status management</li>
+                  <li>Staff management with role-based access control</li>
+                  <li>Appointment booking system for trainers & members</li>
+                  <li>QR code integration for quick access</li>
+                </ul>
+              </div>
+              <div className="flex flex-wrap gap-2 mb-4">
+                <span className={`px-3 py-1 rounded-full text-xs ${theme === 'dark' ? 'bg-slate-700' : 'bg-slate-100'}`}>React.js</span>
+                <span className={`px-3 py-1 rounded-full text-xs ${theme === 'dark' ? 'bg-slate-700' : 'bg-slate-100'}`}>Spring Boot</span>
+                <span className={`px-3 py-1 rounded-full text-xs ${theme === 'dark' ? 'bg-slate-700' : 'bg-slate-100'}`}>Tailwind CSS</span>
+                <span className={`px-3 py-1 rounded-full text-xs ${theme === 'dark' ? 'bg-slate-700' : 'bg-slate-100'}`}>MySQL</span>
+                <span className={`px-3 py-1 rounded-full text-xs ${theme === 'dark' ? 'bg-slate-700' : 'bg-slate-100'}`}>RESTful APIs</span>
+              </div>
+              <div className="flex gap-4">
+                <motion.a
+                  href="https://mansa-brown.vercel.app/"
+                  target="_blank"
+                  className={`text-sm ${theme === 'dark' ? 'text-cyan-400 hover:text-cyan-300' : 'text-blue-500 hover:text-blue-700'} flex items-center gap-1`}
+                  whileHover={{ x: 5 }}
+                >
+                  Live Demo <ExternalLink size={14} />
+                </motion.a>
+                <motion.a
+                  href="https://github.com/SLIIT-FacultyOfComputing/group-project-group-5"
+                  target="_blank"
+                  className={`text-sm ${theme === 'dark' ? 'text-cyan-400 hover:text-cyan-300' : 'text-blue-500 hover:text-blue-700'} flex items-center gap-1`}
+                  whileHover={{ x: 5 }}
+                >
+                  GitHub Repository <Github size={14} />
+                </motion.a>
+              </div>
+            </div>
+          </motion.div>
+
+          {/* 5. Animal Recognizer Project */}
+          <motion.div
+            variants={fadeInUp}
+            whileHover={{
+              scale: 1.02,
+              boxShadow: theme === 'dark'
+                ? '0 20px 25px -5px rgba(0, 0, 0, 0.5), 0 0 15px 0 rgba(34, 211, 238, 0.3)'
+                : '0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 0 15px 0 rgba(34, 211, 238, 0.3)'
+            }}
+            className={`rounded-lg overflow-hidden shadow-lg transition-all ${
+              theme === 'dark' ? 'bg-slate-800' : 'bg-white border border-slate-200'
+            }`}
+          >
+            <div className="relative">
+              <div className={`h-64 ${theme === 'dark' ? 'bg-slate-700' : 'bg-slate-100'} flex items-center justify-center overflow-hidden`}>
+                <motion.img
+                  src={animalRecognizerImg}
+                  alt="Animal Recognizer Interface"
+                  className="w-full h-full object-cover"
+                  whileHover={{ scale: 1.05 }}
+                  transition={{ duration: 0.4 }}
+                  loading="lazy"
+                />
+              </div>
+              <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent opacity-0 hover:opacity-100 transition-opacity duration-300 flex items-end">
+                <div className="p-4 w-full">
+                  <div className="flex gap-2 justify-end">
+                    <motion.a
+                      href="https://github.com/it23782518/animal-recognizer"
+                      target="_blank"
+                      className="bg-white/20 backdrop-blur-md p-2 rounded-full hover:bg-white/30"
+                      whileHover={{ scale: 1.2, rotate: 5 }}
+                    >
+                      <Github size={16} className="text-white" />
+                    </motion.a>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div className="p-6">
+              <div className="flex justify-between items-center mb-2">
+                <h3 className="text-xl font-bold">Animal Recognizer</h3>
+                <span className="text-sm text-gray-400">Jun 2025</span>
+              </div>
+              <p className={`${theme === 'dark' ? 'text-gray-300' : 'text-gray-600'} mb-4`}>
+                AI-powered animal image classification web application that identifies 64 different animal species using a custom CNN model.
+              </p>
+              <div className="mb-4">
+                <h4 className="font-semibold mb-2 text-sm uppercase tracking-wider text-cyan-400">Key Features</h4>
+                <ul className="list-disc pl-5 space-y-1 text-sm mb-4">
+                  <li>Real-time animal recognition with TensorFlow</li>
+                  <li>Next.js (TypeScript) frontend with Tailwind CSS</li>
+                  <li>Python backend for ML model inference</li>
+                  <li>Custom CNN model trained with Keras</li>
+                </ul>
+              </div>
+              <div className="flex flex-wrap gap-2 mb-4">
+                <span className={`px-3 py-1 rounded-full text-xs ${theme === 'dark' ? 'bg-slate-700' : 'bg-slate-100'}`}>TensorFlow</span>
+                <span className={`px-3 py-1 rounded-full text-xs ${theme === 'dark' ? 'bg-slate-700' : 'bg-slate-100'}`}>Next.js</span>
+                <span className={`px-3 py-1 rounded-full text-xs ${theme === 'dark' ? 'bg-slate-700' : 'bg-slate-100'}`}>TypeScript</span>
+                <span className={`px-3 py-1 rounded-full text-xs ${theme === 'dark' ? 'bg-slate-700' : 'bg-slate-100'}`}>Python</span>
+                <span className={`px-3 py-1 rounded-full text-xs ${theme === 'dark' ? 'bg-slate-700' : 'bg-slate-100'}`}>CNN</span>
+                <span className={`px-3 py-1 rounded-full text-xs ${theme === 'dark' ? 'bg-slate-700' : 'bg-slate-100'}`}>Keras</span>
+              </div>
+              <div className="flex gap-4">
+                <motion.a
+                  href="https://github.com/it23782518/animal-recognizer"
+                  target="_blank"
+                  className={`text-sm ${theme === 'dark' ? 'text-cyan-400 hover:text-cyan-300' : 'text-blue-500 hover:text-blue-700'} flex items-center gap-1`}
+                  whileHover={{ x: 5 }}
+                >
+                  GitHub Repository <Github size={14} />
+                </motion.a>
+                <motion.a
+                  href="https://colab.research.google.com/drive/1Lxqs1Xpi1tqzfvkwWuF34jLmgaItbC2m?usp=sharing"
+                  target="_blank"
+                  className={`text-sm ${theme === 'dark' ? 'text-cyan-400 hover:text-cyan-300' : 'text-blue-500 hover:text-blue-700'} flex items-center gap-1`}
+                  whileHover={{ x: 5 }}
+                >
+                  Colab Notebook <ExternalLink size={14} />
+                </motion.a>
+              </div>
+            </div>
+          </motion.div>
+
+          {/* 6. Adaptive Modulation Project */}
           <motion.div
             variants={fadeInUp}
             whileHover={{
@@ -341,184 +599,7 @@ const ProjectsSection = ({ theme }) => {
             </div>
           </motion.div>
 
-          {/* Animal Recognizer Project */}
-          <motion.div
-            variants={fadeInUp}
-            whileHover={{
-              scale: 1.02,
-              boxShadow: theme === 'dark'
-                ? '0 20px 25px -5px rgba(0, 0, 0, 0.5), 0 0 15px 0 rgba(34, 211, 238, 0.3)'
-                : '0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 0 15px 0 rgba(34, 211, 238, 0.3)'
-            }}
-            className={`rounded-lg overflow-hidden shadow-lg transition-all ${
-              theme === 'dark' ? 'bg-slate-800' : 'bg-white border border-slate-200'
-            }`}
-          >
-            <div className="relative">
-              <div className={`h-64 ${theme === 'dark' ? 'bg-slate-700' : 'bg-slate-100'} flex items-center justify-center overflow-hidden`}>
-                <motion.img
-                  src={animalRecognizerImg}
-                  alt="Animal Recognizer Interface"
-                  className="w-full h-full object-cover"
-                  whileHover={{ scale: 1.05 }}
-                  transition={{ duration: 0.4 }}
-                  loading="lazy"
-                />
-              </div>
-              <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent opacity-0 hover:opacity-100 transition-opacity duration-300 flex items-end">
-                <div className="p-4 w-full">
-                  <div className="flex gap-2 justify-end">
-                    <motion.a
-                      href="https://github.com/it23782518/animal-recognizer"
-                      target="_blank"
-                      className="bg-white/20 backdrop-blur-md p-2 rounded-full hover:bg-white/30"
-                      whileHover={{ scale: 1.2, rotate: 5 }}
-                    >
-                      <Github size={16} className="text-white" />
-                    </motion.a>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div className="p-6">
-              <div className="flex justify-between items-center mb-2">
-                <h3 className="text-xl font-bold">Animal Recognizer</h3>
-                <span className="text-sm text-gray-400">Jun 2025</span>
-              </div>
-              <p className={`${theme === 'dark' ? 'text-gray-300' : 'text-gray-600'} mb-4`}>
-                AI-powered animal image classification web application that identifies 64 different animal species using a custom CNN model.
-              </p>
-              <div className="mb-4">
-                <h4 className="font-semibold mb-2 text-sm uppercase tracking-wider text-cyan-400">Key Features</h4>
-                <ul className="list-disc pl-5 space-y-1 text-sm mb-4">
-                  <li>Real-time animal recognition with TensorFlow</li>
-                  <li>Next.js (TypeScript) frontend with Tailwind CSS</li>
-                  <li>Python backend for ML model inference</li>
-                  <li>Custom CNN model trained with Keras</li>
-                </ul>
-              </div>
-              <div className="flex flex-wrap gap-2 mb-4">
-                <span className={`px-3 py-1 rounded-full text-xs ${theme === 'dark' ? 'bg-slate-700' : 'bg-slate-100'}`}>TensorFlow</span>
-                <span className={`px-3 py-1 rounded-full text-xs ${theme === 'dark' ? 'bg-slate-700' : 'bg-slate-100'}`}>Next.js</span>
-                <span className={`px-3 py-1 rounded-full text-xs ${theme === 'dark' ? 'bg-slate-700' : 'bg-slate-100'}`}>TypeScript</span>
-                <span className={`px-3 py-1 rounded-full text-xs ${theme === 'dark' ? 'bg-slate-700' : 'bg-slate-100'}`}>Python</span>
-                <span className={`px-3 py-1 rounded-full text-xs ${theme === 'dark' ? 'bg-slate-700' : 'bg-slate-100'}`}>CNN</span>
-                <span className={`px-3 py-1 rounded-full text-xs ${theme === 'dark' ? 'bg-slate-700' : 'bg-slate-100'}`}>Keras</span>
-              </div>
-              <div className="flex gap-4">
-                <motion.a
-                  href="https://github.com/it23782518/animal-recognizer"
-                  target="_blank"
-                  className={`text-sm ${theme === 'dark' ? 'text-cyan-400 hover:text-cyan-300' : 'text-blue-500 hover:text-blue-700'} flex items-center gap-1`}
-                  whileHover={{ x: 5 }}
-                >
-                  GitHub Repository <Github size={14} />
-                </motion.a>
-                <motion.a
-                  href="https://colab.research.google.com/drive/1Lxqs1Xpi1tqzfvkwWuF34jLmgaItbC2m?usp=sharing"
-                  target="_blank"
-                  className={`text-sm ${theme === 'dark' ? 'text-cyan-400 hover:text-cyan-300' : 'text-blue-500 hover:text-blue-700'} flex items-center gap-1`}
-                  whileHover={{ x: 5 }}
-                >
-                  Colab Notebook <ExternalLink size={14} />
-                </motion.a>
-              </div>
-            </div>
-          </motion.div>
-
-          {/* GymSync Project */}
-          <motion.div
-            variants={fadeInUp}
-            whileHover={{
-              scale: 1.02,
-              boxShadow: theme === 'dark'
-                ? '0 20px 25px -5px rgba(0, 0, 0, 0.5), 0 0 15px 0 rgba(34, 211, 238, 0.3)'
-                : '0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 0 15px 0 rgba(34, 211, 238, 0.3)'
-            }}
-            className={`rounded-lg overflow-hidden shadow-lg transition-all ${
-              theme === 'dark' ? 'bg-slate-800' : 'bg-white border border-slate-200'
-            }`}
-          >
-            <div className="relative">
-              <div className={`h-64 ${theme === 'dark' ? 'bg-slate-700' : 'bg-slate-100'} flex items-center justify-center overflow-hidden`}>
-                <motion.img
-                  src={gymSyncImg}
-                  alt="GymSync Dashboard"
-                  className="w-full h-full object-cover"
-                  whileHover={{ scale: 1.05 }}
-                  transition={{ duration: 0.4 }}
-                  loading="lazy"
-                />
-              </div>
-              <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent opacity-0 hover:opacity-100 transition-opacity duration-300 flex items-end">
-                <div className="p-4 w-full">
-                  <div className="flex gap-2 justify-end">
-                    <motion.a
-                      href="https://mansa-brown.vercel.app/"
-                      target="_blank"
-                      className="bg-white/20 backdrop-blur-md p-2 rounded-full hover:bg-white/30"
-                      whileHover={{ scale: 1.2, rotate: 5 }}
-                    >
-                      <ExternalLink size={16} className="text-white" />
-                    </motion.a>
-                    <motion.a
-                      href="https://github.com/SLIIT-FacultyOfComputing/group-project-group-5"
-                      target="_blank"
-                      className="bg-white/20 backdrop-blur-md p-2 rounded-full hover:bg-white/30"
-                      whileHover={{ scale: 1.2, rotate: 5 }}
-                    >
-                      <Github size={16} className="text-white" />
-                    </motion.a>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div className="p-6">
-              <div className="flex justify-between items-center mb-2">
-                <h3 className="text-xl font-bold">GymSync</h3>
-                <span className="text-sm text-gray-400">Feb - May 2025</span>
-              </div>
-              <p className={`${theme === 'dark' ? 'text-gray-300' : 'text-gray-600'} mb-4`}>
-                Advanced Gym Management System developed for SLIIT&apos;s Object-Oriented Analysis & Design module.
-              </p>
-              <div className="mb-4">
-                <h4 className="font-semibold mb-2 text-sm uppercase tracking-wider text-cyan-400">Key Features</h4>
-                <ul className="list-disc pl-5 space-y-1 text-sm mb-4">
-                  <li>Real-time equipment tracking & status management</li>
-                  <li>Staff management with role-based access control</li>
-                  <li>Appointment booking system for trainers & members</li>
-                  <li>QR code integration for quick access</li>
-                </ul>
-              </div>
-              <div className="flex flex-wrap gap-2 mb-4">
-                <span className={`px-3 py-1 rounded-full text-xs ${theme === 'dark' ? 'bg-slate-700' : 'bg-slate-100'}`}>React.js</span>
-                <span className={`px-3 py-1 rounded-full text-xs ${theme === 'dark' ? 'bg-slate-700' : 'bg-slate-100'}`}>Spring Boot</span>
-                <span className={`px-3 py-1 rounded-full text-xs ${theme === 'dark' ? 'bg-slate-700' : 'bg-slate-100'}`}>Tailwind CSS</span>
-                <span className={`px-3 py-1 rounded-full text-xs ${theme === 'dark' ? 'bg-slate-700' : 'bg-slate-100'}`}>MySQL</span>
-                <span className={`px-3 py-1 rounded-full text-xs ${theme === 'dark' ? 'bg-slate-700' : 'bg-slate-100'}`}>RESTful APIs</span>
-              </div>
-              <div className="flex gap-4">
-                <motion.a
-                  href="https://mansa-brown.vercel.app/"
-                  target="_blank"
-                  className={`text-sm ${theme === 'dark' ? 'text-cyan-400 hover:text-cyan-300' : 'text-blue-500 hover:text-blue-700'} flex items-center gap-1`}
-                  whileHover={{ x: 5 }}
-                >
-                  Live Demo <ExternalLink size={14} />
-                </motion.a>
-                <motion.a
-                  href="https://github.com/SLIIT-FacultyOfComputing/group-project-group-5"
-                  target="_blank"
-                  className={`text-sm ${theme === 'dark' ? 'text-cyan-400 hover:text-cyan-300' : 'text-blue-500 hover:text-blue-700'} flex items-center gap-1`}
-                  whileHover={{ x: 5 }}
-                >
-                  GitHub Repository <Github size={14} />
-                </motion.a>
-              </div>
-            </div>
-          </motion.div>
-
-          {/* AM Receiver Audio Circuit Project */}
+          {/* 7. AM Receiver Audio Circuit Project */}
           <motion.div
             variants={fadeInUp}
             whileHover={{
@@ -599,7 +680,7 @@ const ProjectsSection = ({ theme }) => {
             </div>
           </motion.div>
 
-          {/* Zave Project */}
+          {/* 8. Zave Project */}
           <motion.div
             variants={fadeInUp}
             whileHover={{
@@ -669,64 +750,6 @@ const ProjectsSection = ({ theme }) => {
                 >
                   View Prototype <ExternalLink size={14} />
                 </motion.a>
-              </div>
-            </div>
-          </motion.div>
-
-          {/* Landmine Detection Project */}
-          <motion.div
-            variants={fadeInUp}
-            whileHover={{
-              scale: 1.02,
-              boxShadow: theme === 'dark'
-                ? '0 20px 25px -5px rgba(0, 0, 0, 0.5), 0 0 15px 0 rgba(34, 211, 238, 0.3)'
-                : '0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 0 15px 0 rgba(34, 211, 238, 0.3)'
-            }}
-            className={`rounded-lg overflow-hidden shadow-lg transition-all ${
-              theme === 'dark' ? 'bg-slate-800' : 'bg-white border border-slate-200'
-            }`}
-          >
-            <div className="relative">
-              <div className={`h-64 ${theme === 'dark' ? 'bg-slate-700' : 'bg-slate-100'} flex items-center justify-center overflow-hidden`}>
-                <motion.img
-                  src={landmineRobotImg}
-                  alt="Autonomous Landmine Detection Robot"
-                  className="w-full h-full object-cover"
-                  whileHover={{ scale: 1.05 }}
-                  transition={{ duration: 0.4 }}
-                  loading="lazy"
-                />
-              </div>
-              <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent opacity-0 hover:opacity-100 transition-opacity duration-300 flex items-end">
-                <div className="p-4 w-full">
-                  <div className="flex gap-2 justify-end">
-                    {/* No links available for this project */}
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div className="p-6">
-              <div className="flex justify-between items-center mb-2">
-                <h3 className="text-xl font-bold">Autonomous Landmine Detection System</h3>
-                <span className="text-sm text-gray-400">Nov 2023 - Mar 2024</span>
-              </div>
-              <p className={`${theme === 'dark' ? 'text-gray-300' : 'text-gray-600'} mb-4`}>
-                A foundational landmine detection system utilizing magnetic field sensing technology and a 4WD Arduino-based robot.
-              </p>
-              <div className="mb-4">
-                <h4 className="font-semibold mb-2 text-sm uppercase tracking-wider text-cyan-400">Key Features</h4>
-                <ul className="list-disc pl-5 space-y-1 text-sm mb-4">
-                  <li>Magnetic sensor integration for metallic landmine detection</li>
-                  <li>4WD Arduino-based robot with rotating sensor arm</li>
-                  <li>Real-time data visualization and alerts</li>
-                  <li>Presented at Idea Spark 2 competition (SLIIT)</li>
-                </ul>
-              </div>
-              <div className="flex flex-wrap gap-2 mb-4">
-                <span className={`px-3 py-1 rounded-full text-xs ${theme === 'dark' ? 'bg-slate-700' : 'bg-slate-100'}`}>Arduino</span>
-                <span className={`px-3 py-1 rounded-full text-xs ${theme === 'dark' ? 'bg-slate-700' : 'bg-slate-100'}`}>Robotics</span>
-                <span className={`px-3 py-1 rounded-full text-xs ${theme === 'dark' ? 'bg-slate-700' : 'bg-slate-100'}`}>IoT</span>
-                <span className={`px-3 py-1 rounded-full text-xs ${theme === 'dark' ? 'bg-slate-700' : 'bg-slate-100'}`}>Sensors</span>
               </div>
             </div>
           </motion.div>
