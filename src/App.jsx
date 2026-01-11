@@ -1,4 +1,5 @@
 import { useState, useEffect, useContext, useCallback, lazy, Suspense } from 'react'
+import { useNavigate, useLocation } from 'react-router-dom'
 import { motion, useScroll, useAnimation, AnimatePresence } from 'framer-motion'
 import { TypeAnimation } from 'react-type-animation'
 import { Sun, Moon, ArrowUp, Github, Linkedin, Mail, ExternalLink, Cpu, Youtube, X } from 'lucide-react'
@@ -49,6 +50,8 @@ const EMAILJS_PUBLIC_KEY = import.meta.env.VITE_EMAILJS_PUBLIC_KEY;
 // We'll do this in a useEffect hook inside the component
 
 function App() {
+  const navigate = useNavigate()
+  const location = useLocation()
   const { theme, roboticMode, toggleTheme, toggleRoboticMode } = useContext(ThemeContext)
   const [scrollY, setScrollY] = useState(0)
   const [showBootScreen, setShowBootScreen] = useState(false)
@@ -66,6 +69,16 @@ function App() {
   const { scrollYProgress } = useScroll({
     offset: ["start start", "end end"]
   })
+
+  // If someone lands on the root with project/video query params (from static OG pages), redirect to canonical /video/... route
+  useEffect(() => {
+    const search = new URLSearchParams(location.search)
+    const project = search.get('project')
+    const video = search.get('video')
+    if (project && video && location.pathname === '/') {
+      navigate(`/video/${project}/${video}`, { replace: true })
+    }
+  }, [location.pathname, location.search, navigate])
   
   // Function to handle escape key press to close modal
   const handleEscapeKey = useCallback((e) => {
