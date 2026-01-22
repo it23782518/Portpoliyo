@@ -106,7 +106,7 @@ const VideoPreviewModal = ({ isOpen, onClose, videoUrl, title, projectName }) =>
             )}
             
             {/* Use VideoPlayer Component */}
-            <VideoPlayer videoUrl={videoUrl} />
+            <VideoPlayer videoUrl={videoUrl} autoplay={true} />
           </div>
         </motion.div>
       </motion.div>

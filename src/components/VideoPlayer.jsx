@@ -2,7 +2,7 @@ import { useState, useRef, useEffect } from 'react'
 import { Play, Pause, Volume2, VolumeX, Settings, Maximize, Minimize } from 'lucide-react'
 import PropTypes from 'prop-types'
 
-const VideoPlayer = ({ videoUrl, className = '' }) => {
+const VideoPlayer = ({ videoUrl, className = '', autoplay = false }) => {
   const [isPlaying, setIsPlaying] = useState(false)
   const [currentTime, setCurrentTime] = useState(0)
   const [duration, setDuration] = useState(0)
@@ -15,6 +15,7 @@ const VideoPlayer = ({ videoUrl, className = '' }) => {
   const videoRef = useRef(null)
   const hideControlsTimeout = useRef(null)
   const containerRef = useRef(null)
+  const autoplayAttempted = useRef(false)
 
   // Handle mouse movement to show/hide controls
   useEffect(() => {
@@ -55,6 +56,39 @@ const VideoPlayer = ({ videoUrl, className = '' }) => {
       }
     }
   }, [])
+
+  // Autoplay functionality
+  useEffect(() => {
+    if (!autoplay || autoplayAttempted.current || !videoRef.current) return
+
+    const tryAutoplay = async () => {
+      const v = videoRef.current
+      if (!v) return
+      autoplayAttempted.current = true
+      
+      try {
+        v.volume = volume
+        v.muted = false
+        await v.play()
+        setIsPlaying(true)
+        setIsMuted(false)
+      } catch (err) {
+        // Autoplay with sound blocked, try muted
+        try {
+          v.muted = true
+          await v.play()
+          setIsPlaying(true)
+          setIsMuted(true)
+        } catch (err2) {
+          console.warn('Autoplay failed:', err2)
+          setIsPlaying(false)
+        }
+      }
+    }
+
+    const timer = setTimeout(() => tryAutoplay(), 200)
+    return () => clearTimeout(timer)
+  }, [autoplay, volume])
 
   // Show controls when play/pause state changes, then hide after 1.5 seconds
   useEffect(() => {
@@ -352,7 +386,8 @@ const VideoPlayer = ({ videoUrl, className = '' }) => {
 
 VideoPlayer.propTypes = {
   videoUrl: PropTypes.string.isRequired,
-  className: PropTypes.string
+  className: PropTypes.string,
+  autoplay: PropTypes.bool
 }
 
 export default VideoPlayer

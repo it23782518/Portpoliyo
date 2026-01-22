@@ -207,6 +207,7 @@ const VideoPage = () => {
           {/* Use VideoPlayer Component */}
           <VideoPlayer 
             videoUrl={videoData.url}
+            autoplay={true}
             className="bg-black rounded-xl overflow-hidden"
             style={{ aspectRatio: '16/9' }}
           />
